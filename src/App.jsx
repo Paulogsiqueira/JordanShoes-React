@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import NavBar from './components/navbar/NavBar'
+import NavBar from './components/navbar/NavBar.jsx'
 import Home from './pages/home/Home'
 import Register from './pages/register/Register'
 import Footer from './components/footer/Footer'
@@ -15,7 +15,6 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar/>
-        <div className="container">
           <Routes>
             <Route path='/product/:id' element={<Product/>} />
             <Route path='/' element={<Home/>} />
@@ -23,7 +22,6 @@ function App() {
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register />} />
           </Routes>
-        </div>
         <Footer />
       </BrowserRouter>
     </>
