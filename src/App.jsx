@@ -1,6 +1,6 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import NavBar from './components/navbar/NavBar.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './components/navbar/Navbar.jsx'
 import Home from './pages/home/Home'
 import Register from './pages/register/Register'
 import Footer from './components/footer/Footer'
