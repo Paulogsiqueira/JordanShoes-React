@@ -3,7 +3,7 @@ export const products = [
         name: 'Air Jordan XL2000',
         description: 'Giannis Antetokounmpo empresta seu nome a este tênis versátil, construído para atletas completos.',
         price: 299.99,
-        img: require('../../../public/products/1.png')
+        img: '../../../public/products/1.png'
     },
     {
         name: 'Jordan HighLine',
