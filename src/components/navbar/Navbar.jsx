@@ -1,4 +1,4 @@
-import './NavBar.css'
+import './Navbar.css'
 import { NavLink, Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import logo from '../../img/logo/jordan.png';
