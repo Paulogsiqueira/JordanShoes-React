@@ -1,0 +1,10 @@
+.login h1{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.login p {
+    color:#aaa;
+    margin-bottom: 50px;
+    text-align: center;
+}

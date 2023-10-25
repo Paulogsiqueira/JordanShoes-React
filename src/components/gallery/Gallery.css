@@ -1,0 +1,40 @@
+.products-img{
+    width: 150px;
+}
+
+.products-img:hover{
+    scale:1.5;
+    cursor: pointer;
+}
+
+.products-item:hover{
+    cursor: pointer;
+}
+
+.products-item p{
+    text-decoration: none;
+}
+.products{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.products-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products-list li{
+    width: 22%;
+}
+
+.products-item{
+    background-color: #EBE9EA;
+    text-align: center;
+    padding: 30px 0 10px 0;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #00AEFF;
+}
