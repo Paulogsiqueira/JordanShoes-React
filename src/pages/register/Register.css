@@ -9,7 +9,7 @@
     margin-bottom: 70px;
 }
 
-form{
+.register form{
     display: flex;
     flex-direction: column;
     background-color: #EBE9EA;
@@ -22,19 +22,19 @@ form{
     margin-bottom: 150px;
 }
 
-form label{
+.register label{
     display: flex;
     flex-direction: column;
     width: 80%;
 }
 
-input::placeholder,
+.register input::placeholder,
 textarea::placeholder{
     font-family: "Montserrat", sans-serif;
     color: #AAA
 }
 
-input:focus,
+.register input:focus,
 textarea:focus{
     outline: none;
 }
@@ -50,7 +50,7 @@ label span{
     text-align: left;
 }
 
-input, textarea{
+.register input, textarea{
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #CCC;

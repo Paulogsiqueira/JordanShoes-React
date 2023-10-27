@@ -1,14 +1,17 @@
 import './Cart.css'
 import { CartContext } from '../../context/CartContext';
+import { FreightContext } from '../../context/FreightContext';
 import { useState, useContext, useEffect } from 'react'
 import bin from '../../img/icon/bin.png'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext)
+  const { freight, setFreight } = useContext(FreightContext)
   const [total, setTotal] = useState(0);
-  const [freight, setFreight] = useState(0);
   const [cep, setCep] = useState("");
   const [error, setError] = useState("")
+  const navigate = useNavigate()
 
   useEffect(() => {
     let totalPrice = 0;
@@ -53,9 +56,16 @@ const Cart = () => {
     if (cep.length == 8) {
       setError("")
       setFreight(Math.random() * (30 - 15) + 15)
-      console.log(freight)
     } else {
       setError("CEP informado é inválido")
+    }
+  }
+
+  const finalizeOrder = () => {
+    if(freight > 1){
+      navigate('/payment')
+    }else{
+      alert("Calcule o valor do frete antes de finalizar a compra")
     }
   }
 
@@ -130,7 +140,7 @@ const Cart = () => {
                 <h2>R$ {(total+ freight).toFixed(2)}</h2>
                 <p>em até 6x de R$ {((total + freight)/6).toFixed(2)} sem juros no cartão</p>
               </div>
-              <button className='btn-cart'>Finalizar Pedido</button>
+              <button className='btn-cart' onClick={finalizeOrder}>Finalizar Pedido</button>
             </div>
             <div className='payment-freight'>
               <h2 className='payment-resume'>Calcular frete</h2>

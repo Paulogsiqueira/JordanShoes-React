@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/navbar/Navbar.jsx'
 import Home from './pages/home/Home'
 import Register from './pages/register/Register'
+import Payment from './pages/payment/Payment'
 import Footer from './components/footer/Footer'
 import Login from './pages/login/Login'
 import Product from './pages/product/Product'
@@ -21,6 +22,7 @@ function App() {
             <Route path='/cart' element={<Cart/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register />} />
+            <Route path='/payment' element={<Payment/>} />
           </Routes>
         <Footer />
       </BrowserRouter>
