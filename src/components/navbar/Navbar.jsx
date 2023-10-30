@@ -51,7 +51,7 @@ const NavBar = () => {
                                 <div className='cart'>
                                     <img src={cartIcon} alt="Ícone carrinho de compras" />
                                     <p>{cart == undefined ? 0 : quantity} Itens</p>
-                                    <p>R$ {cart == undefined ? Number(0).toFixed(2) : total}</p>
+                                    <p>R$ {cart == undefined ? Number(0).toFixed(2) : total.toFixed(2)}</p>
                                 </div>
                             </NavLink>
                         </li>

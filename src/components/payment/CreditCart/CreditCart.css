@@ -1,0 +1,80 @@
+.payment-creditcard {
+    display: flex;
+    flex-direction: column;
+    background-color: #EBE9EA;
+    margin-bottom: -10px;
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.creditcard-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.creditcard-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+    align-items: center;
+}
+
+.creditcard-error {
+    width: 90%;
+    margin-left: 50%;
+}
+
+.creditcard-error p {
+    width: 80%;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 12px;
+    color: #F03D3D;
+    margin: 0;
+}
+
+.creditcard-input p {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #474747;
+    font-size: 14px;
+}
+
+.creditcard-label input,
+.creditcard-label select {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #474747;
+    padding: 0px 10px;
+
+}
+
+.btn-payment {
+    background-color: #00AEFF;
+    color: #FFF;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 25%;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-payment__div {
+    width: 90%;
+    text-align: end;
+}
+
+.btn-payment:hover {
+    background-color: #FFF;
+    color: #00AEFF;
+    border: 1px solid #00AEFF;
+}

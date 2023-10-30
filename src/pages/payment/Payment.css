@@ -3,21 +3,6 @@
     margin: 0 auto 80px auto;
 }
 
-.payment-itens-order {
-    width: 30%;
-    height: 500px;
-}
-
-.payment-cart-order {
-    height: 400px;
-    background-color: #EBE9EA;
-    border: 2px solid #b2b2b2;
-    border-radius: 20px;
-    padding: 10px 15px;
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
-
 .payment-type {
     width: 68%;
     margin-right: 10px;
@@ -58,69 +43,11 @@
 .payment-option label {
     display: flex;
     margin: auto 0 auto 5px;
-    font-size: 16px;
+    font-size: 14px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 500;
 }
 
-
-
-/* Form cartão de crédito */
-.payment-creditcard {
-    display: flex;
-    flex-direction: column;
-    background-color: #EBE9EA;
-    margin-bottom: -10px;
-    padding: 20px;
-    border-radius: 5px;
-    align-items: center;
+.order-resume{
+    width: 30%;
 }
-
-.creditcard-label {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0px;
-    align-items: center;
-}
-
-.creditcard-label p {
-    width: 150px;
-    text-align: right;
-    margin-right: 15px;
-}
-
-.creditcard-label input,
-.creditcard-label select {
-    width: 300px;
-    height: 25px;
-    border-radius: 5px;
-    border: 1px solid #474747;
-    padding: 0px 10px;
-
-}
-
-.btn-payment {
-    background-color: #00AEFF;
-    color: #FFF;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 25%;
-    font-weight: bold;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.btn-payment__div{
-    width: 90%;
-
-    text-align: end;
-}
-
-.btn-payment:hover {
-    background-color: #FFF;
-    color: #00AEFF;
-    border: 1px solid #00AEFF;
-}
-
-/* Form cartão de crédito */

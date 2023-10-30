@@ -8,3 +8,53 @@
     margin-bottom: 50px;
     text-align: center;
 }
+
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    background-color: #EBE9EA;
+    text-align: center;
+    width: 40%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-bottom: 150px;
+}
+
+.login label{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.login input::placeholder,
+textarea::placeholder{
+    font-family: "Montserrat", sans-serif;
+    color: #AAA
+}
+
+.login input:focus,
+textarea:focus{
+    outline: none;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+label span{
+    margin-bottom: .3em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.login input, textarea{
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    padding: .8em 0;
+    background-color: transparent;
+}

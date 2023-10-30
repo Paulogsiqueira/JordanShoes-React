@@ -87,13 +87,13 @@ const Product = () => {
             <li>1x R${products[id].price}</li>
             <li>2x R${Number(products[id].price / 2).toFixed(2)}</li>
             <li>3x R${Number(products[id].price / 3).toFixed(2)}</li>
-            <li>4x R${Number(products[id].price / 4 * 1.02).toFixed(2)} <span>(2% de juros)</span></li>
-            <li>5x R${Number(products[id].price / 5 * 1.04).toFixed(2)} <span>(4% de juros)</span></li>
-            <li>6x R${Number(products[id].price / 6 * 1.06).toFixed(2)} <span>(6% de juros)</span></li>
-            <li>7x R${Number(products[id].price / 7 * 1.08).toFixed(2)} <span>(8% de juros)</span></li>
-            <li>8x R${Number(products[id].price / 8 * 1.10).toFixed(2)} <span>(10% de juros)</span></li>
+            <li>4x R${Number(products[id].price / 4).toFixed(2)}</li>
+            <li>5x R${Number(products[id].price / 5).toFixed(2)}</li>
+            <li>6x R${Number(products[id].price / 6).toFixed(2)}</li>
+            <li>7x R${Number(products[id].price / 7 * 1.04).toFixed(2)} <span>(4% de juros)</span></li>
+            <li>8x R${Number(products[id].price / 8 * 1.08).toFixed(2)} <span>(8% de juros)</span></li>
             <li>9x R${Number(products[id].price / 9 * 1.12).toFixed(2)} <span>(12% de juros)</span></li>
-            <li>10x R${Number(products[id].price / 10 * 1.15).toFixed(2)} <span>(15% de juros)</span></li>
+            <li>10x R${Number(products[id].price / 10 * 1.16).toFixed(2)} <span>(16% de juros)</span></li>
           </ul>
         </section>
       </section>
