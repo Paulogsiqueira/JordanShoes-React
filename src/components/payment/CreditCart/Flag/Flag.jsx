@@ -5,30 +5,26 @@ import discover from '../../../../img/payment/discover.png'
 import mastercard from '../../../../img/payment/mastercard.png'
 import './Flag.css'
 
-const Flag = () => {
+const Flag = ({selected}) => {
+
     return (
         <div className='creditcard-inputs'>
-            <p>Seleciona a bandeira</p>
             <fieldset className="radio-image">
                 <label htmlFor="Visa">
-                    <input type="radio" name="flag" id="Visa" value="Visa" required />
-                    <img src={visa} alt="Visa" />
+                    <input type="radio" name="flag" id="Visa" value="Visa" required/>
+                    <img  src={visa} className={selected === "Visa" ? "input-checked" : "input-unchecked"} alt="Visa" />
                 </label>
                 <label htmlFor="Mastercard">
-                    <input type="radio" name="flag" id="Mastercard" value="Mastercard" required />
-                    <img src={mastercard} alt="Mastercard" />
-                </label>
-                <label htmlFor="Paypal">
-                    <input type="radio" name="flag" id="Paypal" value="Paypal" required />
-                    <img src={paypal} alt="Paypal" />
+                    <input type="radio" name="flag" id="Mastercard" value="Mastercard" required/>
+                    <img src={mastercard} className={selected === "Mastercard" ? "input-checked" : "input-unchecked"} alt="Mastercard" />
                 </label>
                 <label htmlFor="Amex">
-                    <input type="radio" name="flag" id="Amex" value="Amex" required />
-                    <img src={amex} alt="Amex" />
+                    <input type="radio" name="flag" id="Amex" value="Amex" required/>
+                    <img src={amex} className={selected === "Amex" ? "input-checked" : "input-unchecked"} alt="Amex" />
                 </label>
                 <label htmlFor="Discover">
-                    <input type="radio" name="flag" id="Discover" value="Discover" required />
-                    <img src={discover} alt="Discover" />
+                    <input type="radio" name="flag" id="Discover" value="Discover" required/>
+                    <img src={discover} className={selected === "Discover" ? "input-checked" : "input-unchecked"} alt="Discover" />
                 </label>
             </fieldset>
         </div>

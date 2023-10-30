@@ -2,121 +2,19 @@ import { FreightContext } from '../../../context/FreightContext';
 import { CartContext } from '../../../context/CartContext';
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
+import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../methods/form';
+import Flag from'./Flag/Flag.jsx'
 import './CreditCart.css'
-import Flag from './Flag/Flag';
+
 
 const CreditCart = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const [titular, setTitular] = useState("")
-    const [cpf, setCpf] = useState("")
-    const [cpfError, setCpfError] = useState("")
-    const [number, setNumber] = useState("")
-    const [validity, setValidity] = useState("")
-    const [cvv, setCvv] = useState("")
     const [total, setTotal] = useState(0);
-
+    const [flag, setFlag] = useState("")
 
     console.log(errors)
-    const onSubmit = () => {
-        console.log(data)
-    }
-
-
-    const handleCpf = (e) => {
-        let cpfValue = e.target.value;
-        if ((/^\d+$/.test(cpfValue) && cpfValue.length <= 11) || cpfValue == "" || (cpfValue.length === 12 || cpfValue.length === 13 || cpfValue.length === 14)) {
-            if (cpfValue.length == 11) {
-                let cpfFormat = cpfValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-                setCpf(cpfFormat)
-                if (validarCPF(cpfFormat)) {
-                    setCpfError("")
-                } else {
-                    setCpfError("CPF inválido")
-                }
-            } else {
-                cpfValue = cpfValue.replace(/\D/g, '');
-                setCpf(cpfValue)
-            }
-        } else {
-            console.log("Nao numerico")
-        }
-    }
-
-    const handleNumber = (e) => {
-        let numero = e.target.value
-        console.log(numero.length)
-        if ((/^\d+$/.test(numero) && numero.length <= 16) || numero.length == "" || (numero.length == 17 || numero.length == 18 || numero.length == 16)) {
-            if (numero.length == 16) {
-                let numberFormat = numero.toString().replace(/(\d{4})/g, '$1 ')
-                numberFormat = numberFormat.trim()
-                console.log(numberFormat)
-                setNumber(numberFormat)
-            } else {
-                numero = numero.replace(/\s/g, '');
-                setNumber(numero)
-            }
-        } else {
-            console.log("Numero invalido")
-        }
-    }
-
-    const handleValidity = (e) => {
-        let validade = e.target.value;
-        console.log(validade.length)
-        if ((/^\d+$/.test(validade) && validade.length <= 5) || validade.length == 6 || validade == "") {
-            if ((validade.replace('/', '')).length == 6) {
-                let validityFormat = validade.toString().replace(/^(.{2})(.*)$/, '$1/$2');
-                setValidity(validityFormat)
-            } else {
-                validade = validade.replace('/', '');
-                setValidity(validade)
-            }
-        } else {
-            console.log("Data inválida")
-        }
-    }
-
-    const handleCvv = (e) => {
-        let value = e.target.value;
-        if (/^\d+$/.test(value) || value == "") {
-            setCvv(value)
-        } else {
-            console.log("Cvv inválida")
-        }
-
-    }
-
-    function validarCPF(cpf) {
-        cpf = cpf.replace(/\D/g, '');
-
-        if (cpf.length !== 11) {
-            return false;
-        }
-        let soma = 0;
-        for (let i = 0; i < 9; i++) {
-            soma += parseInt(cpf.charAt(i)) * (10 - i);
-        }
-        let primeiroDigito = 11 - (soma % 11);
-
-        primeiroDigito = primeiroDigito > 9 ? 0 : primeiroDigito;
-
-        soma = 0;
-        for (let i = 0; i < 10; i++) {
-            soma += parseInt(cpf.charAt(i)) * (11 - i);
-        }
-        let segundoDigito = 11 - (soma % 11);
-
-        segundoDigito = segundoDigito > 9 ? 0 : segundoDigito;
-
-        if (parseInt(cpf.charAt(9)) === primeiroDigito && parseInt(cpf.charAt(10)) === segundoDigito) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     useEffect(() => {
         let totalPrice = 0;
         for (let i = 0; i < cart.length; i++) {
@@ -125,10 +23,13 @@ const CreditCart = () => {
         setTotal(totalPrice)
     }, []);
 
+    const onSubmit = () => {
+        console.log("Certo")
+    }
     return (
         <div>
             <form className='payment-creditcard'>
-                <Flag />
+                <Flag selected={flag}/>
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Titular</p>
@@ -143,55 +44,64 @@ const CreditCart = () => {
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>CPF</p>
-                        <input type="text" placeholder='Digite o CPF do titular' required value={cpf} onChange={(e) => { handleCpf(e) }} />
+                        <input type="text" placeholder='Digite o CPF do titular' {...register("cpf", { required: true, length: 11, validate: (value) => validarCPF(value) })} onInput={handleInputChangeCpf} />
                     </div>
-                    <div className='credicard-error'>
-
+                    <div className='creditcard-error'>
+                        {errors?.cpf?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
+                        {errors?.cpf?.type == 'length' && <p >Documento inválido</p>}
+                        {errors?.cpf?.type == 'validate' && <p >Documento inválido</p>}
                     </div>
                 </label>
-                {cpfError != "" && <p className="error">{cpfError}</p>}
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Número do cartão</p>
-                        <input type="text" placeholder='Digite o número do cartão' required value={number} onChange={(e) => { handleNumber(e) }} />
+                        <input type="text" placeholder='Digite o número do cartão' {...register("number", { required: true, validate: (value) => validarCartao(value)})} onInput={ handleInputChangeNumber} />
                     </div>
-                    <div className='credicard-error'>
-
+                    <div className='creditcard-error'>
+                        {errors?.number?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
+                        {errors?.number?.type == 'minLength' && <p >Número inválido</p>}
+                        {errors?.number?.type == 'maxLength' && <p >Número inválido</p>}
+                        {errors?.number?.type == 'validate' && <p >O número informado não pertence a nenhuma bandeira que trabalhamos</p>}
                     </div>
                 </label>
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
-                        <p>Validade (MM/AAAA)</p>
-                        <input type="text" required value={validity} onChange={(e) => { handleValidity(e) }} />
+                        <p>Validade</p>
+                        <input type="text" placeholder='(MM/AAAA)' {...register("validity", { required: true, minLength: 6, maxLength: 8, pattern: /^(?=(?:\D*\d){1,6}\D*$)/ })} onInput={handleInputChangeValidity} />
                     </div>
-                    <div className='credicard-error'>
-
+                    <div className='creditcard-error'>
+                        {errors?.validity?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
+                        {errors?.validity?.type == 'minLength' && <p >Data inválida</p>}
+                        {errors?.validity?.type == 'maxLength' && <p >Data inválida</p>}
+                        {errors?.validity?.type == 'pattern' && <p >Data inválida</p>}
                     </div>
                 </label>
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Código (CVV)</p>
-                        <input type="password" maxLength="3" required value={cvv} onChange={(e) => { handleCvv(e) }} />
+                        <input type="password" {...register("cvv", { required: true, minLength: 3, maxLength: 3, pattern: /^\d+$/ })} onInput={handleInputChange} />
                     </div>
-                    <div className='credicard-error'>
-
+                    <div className='creditcard-error'>
+                        {errors?.cvv?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
+                        {errors?.cvv?.type == 'minLength' && <p >Código inválido</p>}
+                        {errors?.cvv?.type == 'maxLength' && <p >Código inválido</p>}
                     </div>
                 </label>
                 <label className='creditcard-label'>
-                <div className='creditcard-input'>
-                    <p>Parcela</p>
-                    <select>
-                        <option>1x de R${((total + freight)).toFixed(2)} (sem juros)</option>
-                        <option>2x de R${((total + freight) / 2).toFixed(2)} (sem juros)</option>
-                        <option>3x de R${((total + freight) / 3).toFixed(2)} (sem juros)</option>
-                        <option>4x de R${((total + freight) / 4).toFixed(2)} (sem juros)</option>
-                        <option>5x de R${((total + freight) / 5).toFixed(2)} (sem juros)</option>
-                        <option>6x de R${((total + freight) / 6).toFixed(2)} (sem juros)</option>
-                        <option>7x de R${((total + freight) / 7 * 1.04).toFixed(2)} (4% de juros)</option>
-                        <option>8x de R${((total + freight) / 8 * 1.08).toFixed(2)} (8% de juros)</option>
-                        <option>9x de R${((total + freight) / 9 * 1.12).toFixed(2)} (12% de juros)</option>
-                        <option>10x de R${((total + freight) / 10 * 1.16).toFixed(2)} (16% de juros)</option>
-                    </select>
+                    <div className='creditcard-input'>
+                        <p>Parcela</p>
+                        <select>
+                            <option>1x de R${((total + freight)).toFixed(2)} (sem juros)</option>
+                            <option>2x de R${((total + freight) / 2).toFixed(2)} (sem juros)</option>
+                            <option>3x de R${((total + freight) / 3).toFixed(2)} (sem juros)</option>
+                            <option>4x de R${((total + freight) / 4).toFixed(2)} (sem juros)</option>
+                            <option>5x de R${((total + freight) / 5).toFixed(2)} (sem juros)</option>
+                            <option>6x de R${((total + freight) / 6).toFixed(2)} (sem juros)</option>
+                            <option>7x de R${((total + freight) / 7 * 1.04).toFixed(2)} (4% de juros)</option>
+                            <option>8x de R${((total + freight) / 8 * 1.08).toFixed(2)} (8% de juros)</option>
+                            <option>9x de R${((total + freight) / 9 * 1.12).toFixed(2)} (12% de juros)</option>
+                            <option>10x de R${((total + freight) / 10 * 1.16).toFixed(2)} (16% de juros)</option>
+                        </select>
                     </div>
                     <div className='credicard-error'>
 
@@ -204,5 +114,4 @@ const CreditCart = () => {
         </div>
     )
 }
-
 export default CreditCart
