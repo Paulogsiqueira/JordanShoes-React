@@ -1,0 +1,16 @@
+.finishOrder-page{
+    display: flex;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    height: 100%;
+    min-height: 100vh;
+}
+.payment-component{
+    width: 100%;
+    margin-bottom: 100px;
+
+}
+.resume-component{
+    padding-top: 100px;
+    width: 30%;
+}

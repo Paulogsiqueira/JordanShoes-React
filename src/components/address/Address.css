@@ -1,0 +1,118 @@
+.address-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.address-type {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.address-page__itens {
+    display: flex;
+}
+.address-title {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.address-title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    padding-bottom: 10px;
+    border-radius: 5%;
+}
+
+.address-title h2 {
+    color: #00AEFF;
+}
+
+.address-option {
+    display: flex;
+    background-color: #00aeff;
+    border: 1px solid #474747;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: auto 0;
+    height: 35px;
+}
+.address-option p {
+    display: flex;
+    margin: auto 0 auto 15px;
+    font-size: 16px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 500;
+}
+
+.address-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #EBE9EA;
+    margin-bottom: -10px;
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.address-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.address-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+    align-items: center;
+}
+.address-input p {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #474747;
+    font-size: 14px;
+}
+
+.address-label input,
+.address-label select {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #474747;
+    padding: 0px 10px;
+
+}
+
+.cep-input {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    align-items: center;
+    background-color:#EBE9EA ;
+    justify-content: center;
+    padding-top: 30px;
+}
+.cep-input input{
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #474747;
+    padding: 0px 10px;
+}
+.cep-input p {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #474747;
+    font-size: 16px;
+}
+.cep-input button{
+    margin-left: 20px;
+}

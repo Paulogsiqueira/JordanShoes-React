@@ -6,7 +6,6 @@ import mastercard from '../../../../img/payment/mastercard.png'
 import './Flag.css'
 
 const Flag = ({selected}) => {
-
     return (
         <div className='creditcard-inputs'>
             <fieldset className="radio-image">

@@ -21,13 +21,13 @@
     align-items: center;
 }
 
-.creditcard-error {
+.form-error {
     width: 90%;
     margin-left: 50%;
 }
 
-.creditcard-error p {
-    width: 80%;
+.form-error p {
+    width: 100%;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 12px;
     color: #F03D3D;

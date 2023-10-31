@@ -3,32 +3,38 @@ export const handleInputChange = (e) => {
     e.target.value = e.target.value.replace(/\D/g, '');
 };
 export const handleInputChangeCpf = (e) => {
-    let cpf = e.target.value
-    cpf = e.target.value.replace(/\D/g, '');
+    let cpf = e.target.value.replace(/\D/g, '');
     if (cpf.length == 11) {
         cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
     }
     e.target.value = cpf
 };
 export const handleInputChangeNumber = (e) => {
-    let number = e.target.value
-    number = e.target.value.replace(/\D/g, '');
+    let number = e.target.value.replace(/\D/g, '');
     if (number.length == 16) {
         number = number.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, '$1 $2 $3 $4')
     }else if(number.length == 15){
         number = number.replace(/(\d{4})(\d{6})(\d{5})/, '$1 $2 $3')
     }
     e.target.value = number
-    setFlag(selectCardFlag(number))
 };
 export const handleInputChangeValidity = (e) => {
-    let validity = e.target.value
-    validity = e.target.value.replace(/\D/g, '');
+    let validity = e.target.value.replace(/\D/g, '');
     if (validity.length == 6) {
         validity = validity.replace(/(\d{2})(\d{4})/, '$1/$2')
     }
     e.target.value = validity
 };
+
+export const handleInputChangeCep = (e) => {
+    let cep = e.target.value.replace(/\D/g, '');
+    if (cep.length == 8)  {
+        cep = cep.slice(0, 5) + '-' + cep.slice(5);
+    }
+    console.log(cep);
+    e.target.value = cep
+}
+
 export const validarCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, '');
 
@@ -66,24 +72,5 @@ export const validarCartao = (number) =>{
         return true
     }else{
         return false
-    }
-}
-
-export const selectCardFlag = (number) =>{
-    number = number.replace(/\D/g, '');
-    if(number[0] == 3 && number.length == 15){
-        return "Amex"
-    }else if((number[0] >3 && number[0] < 7)&& number.length ==16){
-        if(number[4]){
-            return "Visa"
-        }
-        if(number[5]){
-            return "Mastercard"
-        }
-        if(number[6]){
-            return "Discover"
-        }
-    }else{
-        return ""
     }
 }

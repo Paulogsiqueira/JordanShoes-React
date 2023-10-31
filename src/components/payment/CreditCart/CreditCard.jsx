@@ -3,8 +3,8 @@ import { CartContext } from '../../../context/CartContext';
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../methods/form';
-import Flag from'./Flag/Flag.jsx'
-import './CreditCart.css'
+import Flag from './Flag/Flag.jsx'
+import './CreditCard.css'
 
 
 const CreditCart = () => {
@@ -26,16 +26,34 @@ const CreditCart = () => {
     const onSubmit = () => {
         console.log("Certo")
     }
+
+    const selectCardFlag = (e) => {
+        let number = e.target.value
+        number = number.replace(/\D/g, '');
+        if (number[0] == 3 && number.length == 15) {
+            setFlag("Amex")
+        } else if ((number[0] > 3 && number[0] < 7) && number.length == 16) {
+            if (number[0] == 4) {
+                setFlag("Visa")
+            } else if (number[0] == 5) {
+                setFlag("Mastercard")
+            } else if (number[0] == 6) {
+                setFlag("Discover")
+            }
+        } else {
+            setFlag("")
+        }
+    }
     return (
         <div>
             <form className='payment-creditcard'>
-                <Flag selected={flag}/>
+                <Flag selected={flag} />
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Titular</p>
                         <input type="text" placeholder='Digite o nome do titular' {...register("name", { required: true, minLength: 10, pattern: /^[a-zA-Z\s]*$/ })} />
                     </div>
-                    <div className='creditcard-error'>
+                    <div className='form-error'>
                         {errors?.name?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
                         {errors?.name?.type == 'minLength' && <p >Nome do titular inválido</p>}
                         {errors?.name?.type == 'pattern' && <p >Nome do titular inválido</p>}
@@ -44,9 +62,9 @@ const CreditCart = () => {
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>CPF</p>
-                        <input type="text" placeholder='Digite o CPF do titular' {...register("cpf", { required: true, length: 11, validate: (value) => validarCPF(value) })} onInput={handleInputChangeCpf} />
+                        <input type="text" placeholder='Digite o CPF do titular' {...register("cpf", { required: true, length: 11, validate: (value) => validarCPF(value), onChange: handleInputChangeCpf })} />
                     </div>
-                    <div className='creditcard-error'>
+                    <div className='form-error'>
                         {errors?.cpf?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
                         {errors?.cpf?.type == 'length' && <p >Documento inválido</p>}
                         {errors?.cpf?.type == 'validate' && <p >Documento inválido</p>}
@@ -55,9 +73,9 @@ const CreditCart = () => {
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Número do cartão</p>
-                        <input type="text" placeholder='Digite o número do cartão' {...register("number", { required: true, validate: (value) => validarCartao(value)})} onInput={ handleInputChangeNumber} />
+                        <input type="text" placeholder='Digite o número do cartão' {...register("number", { required: true, validate: (value) => validarCartao(value), onChange: handleInputChangeNumber })} onInput={(e) => selectCardFlag(e)} />
                     </div>
-                    <div className='creditcard-error'>
+                    <div className='form-error'>
                         {errors?.number?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
                         {errors?.number?.type == 'minLength' && <p >Número inválido</p>}
                         {errors?.number?.type == 'maxLength' && <p >Número inválido</p>}
@@ -67,9 +85,9 @@ const CreditCart = () => {
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Validade</p>
-                        <input type="text" placeholder='(MM/AAAA)' {...register("validity", { required: true, minLength: 6, maxLength: 8, pattern: /^(?=(?:\D*\d){1,6}\D*$)/ })} onInput={handleInputChangeValidity} />
+                        <input type="text" placeholder='(MM/AAAA)' {...register("validity", { required: true, minLength: 6, maxLength: 8, pattern: /^(?=(?:\D*\d){1,6}\D*$)/, onChange: handleInputChangeValidity })} />
                     </div>
-                    <div className='creditcard-error'>
+                    <div className='form-error'>
                         {errors?.validity?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
                         {errors?.validity?.type == 'minLength' && <p >Data inválida</p>}
                         {errors?.validity?.type == 'maxLength' && <p >Data inválida</p>}
@@ -79,9 +97,9 @@ const CreditCart = () => {
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
                         <p>Código (CVV)</p>
-                        <input type="password" {...register("cvv", { required: true, minLength: 3, maxLength: 3, pattern: /^\d+$/ })} onInput={handleInputChange} />
+                        <input type="password" {...register("cvv", { required: true, minLength: 3, maxLength: 3, pattern: /^\d+$/, onChange: handleInputChange })} />
                     </div>
-                    <div className='creditcard-error'>
+                    <div className='form-error'>
                         {errors?.cvv?.type == 'required' && <p >Preenchimento do campo obrigatório</p>}
                         {errors?.cvv?.type == 'minLength' && <p >Código inválido</p>}
                         {errors?.cvv?.type == 'maxLength' && <p >Código inválido</p>}
