@@ -21,11 +21,12 @@ const Freight = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label>
                         CEP
-                        <input type='text' {...register("cep", { required: true, minLength: 8, onChange:handleInputChangeCep })} />
+                        <input type='text' {...register("cep", { required: true, minLength: 8,maxLength:9, onChange:handleInputChangeCep })} />
                         {freight >14 && <p className='freight-value'>Valor do frete: R$ {(freight).toFixed(2)}</p>}
                         <div className='form-error'>
                             {errors?.cep?.type == 'required' && <p >Campo obrigatório</p>}
                             {errors?.cep?.type == 'minLength' && <p >CEP inválido</p>}
+                            {errors?.cep?.type == 'maxLength' && <p >CEP inválido</p>}
                         </div>
                     </label>
                     <button className='btn-freight' type="submit">Calcular</button>

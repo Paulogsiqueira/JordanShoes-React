@@ -31,9 +31,16 @@ export const handleInputChangeCep = (e) => {
     if (cep.length == 8)  {
         cep = cep.slice(0, 5) + '-' + cep.slice(5);
     }
-    console.log(cep);
     e.target.value = cep
 }
+
+export const handleInputChangeCell = (e) => {
+    let cell = e.target.value.replace(/\D/g, '');
+    if (cell.length == 11) {
+        cell = cell.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+    }
+    e.target.value = cell
+};
 
 export const validarCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, '');

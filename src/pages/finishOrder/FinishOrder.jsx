@@ -1,4 +1,4 @@
-import Address from "../../components/address/Address"
+import Delivery from "../../components/delivery/Delivery"
 import Payment from "../../components/payment/Payment"
 import Resume from "../../components/payment/Resume/Resume"
 import './finishOrder.css'
@@ -8,7 +8,7 @@ const finishOrder = () => {
     return (
         <div className="finishOrder-page">
             <div className="payment-component">
-                <Address/>
+                <Delivery/>
                 <Payment />
             </div>
             <div className="resume-component">

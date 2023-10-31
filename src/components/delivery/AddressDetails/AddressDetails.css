@@ -1,0 +1,54 @@
+.address-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #EBE9EA;
+    margin-bottom: -10px;
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.address-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.address-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    align-items: center;
+}
+.address-input p {
+    width: 150px;
+    text-align: right;
+    margin-right: 15px;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #474747;
+    font-size: 14px;
+}
+
+.address-label input {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #474747;
+    padding: 0px 10px;
+}
+.details-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.details-error{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-top: -10px;
+    margin-left: 100px;
+}
+.details-error p{
+    color: #F03D3D;
+}
