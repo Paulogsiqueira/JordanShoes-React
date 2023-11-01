@@ -117,9 +117,9 @@
 
 .modal-content {
     width: 30%;
-    border: 1px solid #474747;
-    padding: 15px;
-    border-radius: 5px;
+    border: 2px solid #bebdbd;
+    padding: 5px 5px 15px 15px;
+    border-radius: 15px;
     position: absolute;
     top: 10%;
     left: 35%;
@@ -133,6 +133,12 @@
     align-items: center;
 }
 
+.modal-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .modal-title {
     width: 90%;
     display: flex;
@@ -141,6 +147,25 @@
     border: 1px solid #01ba29;
     color: #474747;
     align-items: center;
+    margin-right: 10px;
+}
+
+.modal-close {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+.modal-close button {
+    background-color: transparent;
+    border: none;
+}
+.modal-close img {
+    width: 30px;
+}
+.modal-close img:hover {
+    width: 30px;
+    cursor: pointer;
 }
 
 .modal-title img {
@@ -150,8 +175,9 @@
 }
 
 .modal-title p {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 5px;
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 .modal-btn {
@@ -177,10 +203,12 @@
     height: 20%;
     align-items: center;
 }
-.modal-btn__cart img{
+
+.modal-btn__cart img {
     width: 20px;
     margin-right: 5px;
 }
+
 .modal-btn__cart:hover {
     background-color: #FFF;
     color: #00AEFF;
@@ -209,7 +237,25 @@
     color: #0BB07B;
     border: 1px solid #0BB07B;
 }
-.modal-btn__buy img{
+
+.modal-btn__buy img {
     width: 20px;
     margin-right: 5px;
+}
+
+.modalError-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalError-title p {
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+}
+.modalError-title img {
+    width: 200px;
+    height: 200px;
+    margin: 0px auto 30px auto;
 }

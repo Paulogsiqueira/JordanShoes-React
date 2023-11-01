@@ -4,6 +4,8 @@ import { LoginContext } from '../../context/LoginContext'
 import { CartContext } from '../../context/CartContext';
 import { products } from '../../data/products.jsx';
 import Modal from 'react-modal';
+import close from '../../img/icon/close.png';
+import error from '../../img/icon/error.png';
 import money from '../../img/icon/money.png';
 import card from '../../img/icon/card.png';
 import cartIcon from '../../img/icon/cart.png';
@@ -18,13 +20,19 @@ const Product = () => {
   const { login, setLogin } = useContext(LoginContext)
   const { cart, setCart } = useContext(CartContext)
   const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
   const navigate = useNavigate()
 
   const openModal = () => {
     setIsOpen(true)
   }
+  const openModalError = () => {
+    setModalErrorIsOpen(true)
+  }
+
   const closeModal = () => {
     setIsOpen(false)
+    setModalErrorIsOpen(false)
   }
 
   const handleClick = () => {
@@ -54,8 +62,7 @@ const Product = () => {
         setCart(updatedCart);
       }
     } else {
-      alert("Para adicionar itens ao carrinho, você precisa realizar o login")
-      navigate("/login")
+      openModalError()
     }
   }
 
@@ -105,15 +112,38 @@ const Product = () => {
           </ul>
         </section>
       </section>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel='Example Modal' shouldCloseOnOverlayClick={true} overlayClassName='modal-overlay' className='modal-content'>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='modal-content'>
         <div className='modal'>
+          <div className='modal-close'>
+            <button onClick={() => {closeModal()}}><img src={close} /></button>
+          </div>
           <div className='modal-title'>
             <img src={checked} />
             <p>Produto adicionado com sucesso!</p>
           </div>
           <div className='modal-btn'>
-            <button onClick={() => { navigate('/') }} className='modal-btn__buy'><img src={leftArrow}/>Continuar comprando</button>
-            <button onClick={() => { navigate('/cart') }} className='modal-btn__cart'><img src={cartIcon}/>Ver carrinho</button>
+            <button onClick={() => { navigate('/') }} className='modal-btn__buy'><img src={leftArrow} />Continuar comprando</button>
+            <button onClick={() => { navigate('/cart') }} className='modal-btn__cart'><img src={cartIcon} />Ver carrinho</button>
+          </div>
+        </div>
+      </Modal>
+      <Modal
+        isOpen={modalErrorIsOpen}
+        onRequestClose={closeModal}
+        className='modal-content'>
+        <div className='modal'>
+          <div className='modal-close'>
+            <button onClick={() => {closeModal()}}><img src={close} /></button>
+          </div>
+          <div className='modalError-title'>
+            <img src={error} />
+            <p>Para adicionar itens ao carrinho voce precisa entrar na sua conta primeiro</p>
+          </div>
+          <div className='modal-btn'>
+            <button onClick={() => { navigate('/login') }} className='modal-btn__cart'>OK</button>
           </div>
         </div>
       </Modal>
