@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../methods/form';
 import Flag from './Flag/Flag.jsx'
 import './CreditCard.css'
+import { useNavigate } from 'react-router-dom';
 
 
 const CreditCart = () => {
@@ -13,6 +14,7 @@ const CreditCart = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [total, setTotal] = useState(0);
     const [flag, setFlag] = useState("")
+    const navigate = useNavigate()
 
     console.log(errors)
     useEffect(() => {
@@ -24,7 +26,8 @@ const CreditCart = () => {
     }, []);
 
     const onSubmit = () => {
-        console.log("Certo")
+        setCart([])
+        navigate('/paymentComplete')
     }
 
     const selectCardFlag = (e) => {

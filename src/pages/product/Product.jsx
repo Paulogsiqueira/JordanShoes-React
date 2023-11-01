@@ -1,22 +1,35 @@
-import './Product.css'
 import { useParams, useNavigate } from 'react-router-dom'
-import { products } from '../../data/products.jsx';
-import { useState, useContext, useEffect } from 'react'
-import money from '../../img/icon/money.png';
-import card from '../../img/icon/card.png';
+import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '../../context/LoginContext'
 import { CartContext } from '../../context/CartContext';
+import { products } from '../../data/products.jsx';
+import Modal from 'react-modal';
+import money from '../../img/icon/money.png';
+import card from '../../img/icon/card.png';
+import cartIcon from '../../img/icon/cart.png';
+import checked from '../../img/icon/checked.png';
+import leftArrow from '../../img/icon/left-arrow.png';
+import './Product.css'
 
+Modal.setAppElement("#root")
 
 const Product = () => {
   const { id } = useParams();
   const { login, setLogin } = useContext(LoginContext)
   const { cart, setCart } = useContext(CartContext)
-
+  const [modalIsOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
+
+  const openModal = () => {
+    setIsOpen(true)
+  }
+  const closeModal = () => {
+    setIsOpen(false)
+  }
 
   const handleClick = () => {
     if (login == "true") {
+      openModal()
       let found = false;
       let pos;
       cart.forEach((product) => {
@@ -30,21 +43,16 @@ const Product = () => {
         productToAdd.quantity = 1;
         updatedCart.push(productToAdd);
         setCart(updatedCart);
-      }else{
+      } else {
         for (let i = 0; i < cart.length; i++) {
           if (cart[i].name === products[id].name) {
             pos = i;
           }
         }
         const updatedCart = [...cart]
-        updatedCart[pos].quantity +=1;
+        updatedCart[pos].quantity += 1;
         setCart(updatedCart);
       }
-
-
-
-
-
     } else {
       alert("Para adicionar itens ao carrinho, você precisa realizar o login")
       navigate("/login")
@@ -97,6 +105,18 @@ const Product = () => {
           </ul>
         </section>
       </section>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel='Example Modal' shouldCloseOnOverlayClick={true} overlayClassName='modal-overlay' className='modal-content'>
+        <div className='modal'>
+          <div className='modal-title'>
+            <img src={checked} />
+            <p>Produto adicionado com sucesso!</p>
+          </div>
+          <div className='modal-btn'>
+            <button onClick={() => { navigate('/') }} className='modal-btn__buy'><img src={leftArrow}/>Continuar comprando</button>
+            <button onClick={() => { navigate('/cart') }} className='modal-btn__cart'><img src={cartIcon}/>Ver carrinho</button>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }

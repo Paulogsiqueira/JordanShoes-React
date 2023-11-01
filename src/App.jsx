@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer'
 import Login from './pages/login/Login'
 import Product from './pages/product/Product'
 import Cart from './pages/cart/Cart'
+import PaymentComplete from './pages/paymentComplete/PaymentComplete'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register />} />
             <Route path='/payment' element={<FinishOrder/>} />
+            <Route path='/paymentComplete' element={<PaymentComplete/>} />
           </Routes>
         <Footer />
       </BrowserRouter>
