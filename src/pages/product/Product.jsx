@@ -9,7 +9,7 @@ import error from '../../img/icon/error.png';
 import money from '../../img/icon/money.png';
 import card from '../../img/icon/card.png';
 import cartIcon from '../../img/icon/cart.png';
-import checked from '../../img/icon/checked.png';
+import complete from '../../img/icon/complete.png';
 import leftArrow from '../../img/icon/left-arrow.png';
 import './Product.css'
 
@@ -121,7 +121,7 @@ const Product = () => {
             <button onClick={() => {closeModal()}}><img src={close} /></button>
           </div>
           <div className='modal-title'>
-            <img src={checked} />
+            <img src={complete} />
             <p>Produto adicionado com sucesso!</p>
           </div>
           <div className='modal-btn'>

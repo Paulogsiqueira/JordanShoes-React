@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import checked from '../../img/icon/checked.png';
+import complete from '../../img/icon/complete.png';
 import './PaymentComplete.css'
 
 const PaymentComplete = () => {
@@ -7,7 +7,7 @@ const PaymentComplete = () => {
 
     return (
         <div className='paymentComplete'>
-            <img src={checked} />
+            <img src={complete} />
             <h1>Pedido Confirmado</h1>
             <p>O pagamento foi aprovado e seu pedido foi realizado com sucesso!</p>
             <div className='paymentComplete-button'>
