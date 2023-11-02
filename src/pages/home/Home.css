@@ -8,6 +8,12 @@
     font-size: 36px;
 }
 
+.home-highlight{
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 36px;
+    color:#474747;
+}
+
 .home div{
     margin-top: 70px;
 }

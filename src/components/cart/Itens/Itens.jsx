@@ -42,7 +42,7 @@ const Itens = () => {
 
     return (
         <div className='cart-itens'>
-            <ul>
+            <ul >
                 {cart.map((product, index) => (
                     <li key={index} >
                         <div className='cart-item'>

@@ -36,5 +36,10 @@
     padding: 30px 0 10px 0;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #00AEFF;
+    opacity: 80%;
+}
+
+.products-item:hover{
+    opacity: 100%;
+    border: 1px solid #2962FF;
 }

@@ -13,7 +13,7 @@ const Home = () => {
         </div>
       </header>
       <div>
-        <h2>Destaques</h2>
+        <h2 className='home-highlight'>Destaques</h2>
         <p>Frete grátis e chinelo de brinde por tempo limitado.</p>
         <Gallery />
       </div>
