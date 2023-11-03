@@ -103,4 +103,108 @@ export const products = [
             '../../../public/products/Jordan One Take 4/6.png',
         ]
     },
+    {
+        name: 'Nike Air Force 1',
+        description: 'Os Nike Air Force 1 são um ícone da cultura sneaker e da moda urbana. Introduzidos pela primeira vez em 1982, esses tênis tornaram-se uma parte integral da história da Nike e continuam a ser extremamente populares até os dias de hoje.',
+        price: 799.00,
+        img: '../../../public/products/Nike Air Force 1/1.png',
+        othersImg: [
+            '../../../public/products/Nike Air Force 1/2.png',
+            '../../../public/products/Nike Air Force 1/3.png',
+            '../../../public/products/Nike Air Force 1/4.png',
+            '../../../public/products/Nike Air Force 1/5.png',
+            '../../../public/products/Nike Air Force 1/6.png',
+        ]
+    },
+    {
+        name: 'Nike Air Max 90',
+        description: 'Os Nike Air Max 90, também conhecidos como Air Max III, são uma das silhuetas mais icônicas e amadas da linha Air Max da Nike. Lançados pela primeira vez em 1990, esses tênis são conhecidos por sua combinação de estilo e inovação tecnológica.',
+        price: 1249.00,
+        img: '../../../public/products/Nike Air Max 90/1.png',
+        othersImg: [
+            '../../../public/products/Nike Air Max 90/2.png',
+            '../../../public/products/Nike Air Max 90/3.png',
+            '../../../public/products/Nike Air Max 90/4.png',
+            '../../../public/products/Nike Air Max 90/5.png',
+            '../../../public/products/Nike Air Max 90/6.png',
+        ]
+    },
+    {
+        name: 'Nike Air Presto',
+        description: 'Os Nike Air Presto são conhecidos por sua inovação e design revolucionário na indústria de calçados esportivos. Lançados pela Nike em 2000, esses tênis desafiaram as convenções tradicionais de ajuste e tamanho, apresentando um sistema de tamanhos baseado em roupas em vez de tamanhos de calçados convencionais.',
+        price: 1029.00,
+        img: '../../../public/products/Nike Air Presto/1.png',
+        othersImg: [
+            '../../../public/products/Nike Air Presto/2.png',
+            '../../../public/products/Nike Air Presto/3.png',
+            '../../../public/products/Nike Air Presto/4.png',
+            '../../../public/products/Nike Air Presto/5.png',
+            '../../../public/products/Nike Air Presto/6.png',
+        ]
+    },
+    {
+        name: 'Nike Cortez',
+        description: 'Os Nike Cortez são tênis que têm uma história rica e uma presença icônica na cultura sneaker. Introduzidos pela primeira vez em 1972, esses tênis desportivos foram projetados pelo co-fundador da Nike, Bill Bowerman, e tornaram-se imediatamente populares devido ao seu design simples e elegante.',
+        price: 629.00,
+        img: '../../../public/products/Nike Cortez/1.png',
+        othersImg: [
+            '../../../public/products/Nike Cortez/2.png',
+            '../../../public/products/Nike Cortez/3.png',
+            '../../../public/products/Nike Cortez/4.png',
+            '../../../public/products/Nike Cortez/5.png',
+            '../../../public/products/Nike Cortez/6.png',
+        ]
+    },
+    {
+        name: 'Nike Dunk Low',
+        description: 'Os Nike Dunk Low são tênis de basquete que foram originalmente lançados em 1985 como parte da linha Nike College Color, destinados a equipes universitárias de basquete. Ao longo do tempo, eles evoluíram para se tornar um ícone da cultura sneaker e da moda urbana. ',
+        price: 599.00,
+        img: '../../../public/products/Nike Dunk Low/1.png',
+        othersImg: [
+            '../../../public/products/Nike Dunk Low/2.png',
+            '../../../public/products/Nike Dunk Low/3.png',
+            '../../../public/products/Nike Dunk Low/4.png',
+            '../../../public/products/Nike Dunk Low/5.png',
+            '../../../public/products/Nike Dunk Low/6.png',
+        ]
+    },
+    {
+        name: 'Nike JA',
+        description: 'Estes pares possuem um design inspirado nos laços familiares dos Morants. Confeccionado em material têxtil e solado de borracha dando maior tração aos seus movimentos.',
+        price: 735.00,
+        img: '../../../public/products/Nike JA/1.png',
+        othersImg: [
+            '../../../public/products/Nike JA/2.png',
+            '../../../public/products/Nike JA/3.png',
+            '../../../public/products/Nike JA/4.png',
+            '../../../public/products/Nike JA/5.png',
+            '../../../public/products/Nike JA/6.png',
+        ]
+    },
+    {
+        name: 'Nike KD15 ASW',
+        description: 'Tênis Nike KD15 Asw Suave e responsivo o tênis Nike KD15 Asw está pronto para te acompanhar! Construído com silhueta de cano baixo, o KD15 Asw ostenta uma base de malha com várias camadas sobrepostas na parte superior, acompanhado de uma sola extra durável ideal para que você tenha harmonia em cada passada.',
+        price: 649.00,
+        img: '../../../public/products/Nike KD15 ASW/1.png',
+        othersImg: [
+            '../../../public/products/Nike KD15 ASW/2.png',
+            '../../../public/products/Nike KD15 ASW/3.png',
+            '../../../public/products/Nike KD15 ASW/4.png',
+            '../../../public/products/Nike KD15 ASW/5.png',
+            '../../../public/products/Nike KD15 ASW/6.png',
+        ]
+    },
+    {
+        name: 'Nike Lebron XX',
+        description: 'O Nike LeBron 20, ou Nike LeBron XX, é o vigésimo modelo de tênis da linha de assinatura do jogador de basquete LeBron James da Nike. Esses tênis são conhecidos por incorporar inovações tecnológicas e materiais de alto desempenho para atender às necessidades específicas de LeBron em quadra.',
+        price: 999.00,
+        img: '../../../public/products/Nike Lebron XX/1.png',
+        othersImg: [
+            '../../../public/products/Nike Lebron XX/2.png',
+            '../../../public/products/Nike Lebron XX/3.png',
+            '../../../public/products/Nike Lebron XX/4.png',
+            '../../../public/products/Nike Lebron XX/5.png',
+            '../../../public/products/Nike Lebron XX/6.png',
+        ]
+    },
 ]
