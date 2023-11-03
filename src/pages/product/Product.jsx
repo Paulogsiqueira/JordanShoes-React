@@ -44,7 +44,7 @@ const Product = () => {
             <button onClick={() => { closeModal() }}><img src={close} /></button>
           </div>
           <div className='modal-title'>
-            <img src={complete} />
+            <img src={complete}  />
             <p>Produto adicionado com sucesso!</p>
           </div>
           <div className='modal-btn'>
