@@ -10,11 +10,6 @@ const ProductDetails = (props) => {
     const { cart, setCart } = useContext(CartContext)
     const { login, setLogin } = useContext(LoginContext)
 
-
-
-    console.log(`id: ${props.item}`)
-
-
     const handleClick = () => {
         if (login == "true") {
           props.openModalFunc()

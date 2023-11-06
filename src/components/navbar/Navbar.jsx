@@ -25,12 +25,7 @@ const NavBar = () => {
         }
         setQuantity(qtd)
         setTotal(totalPrice)
-        console.log(quantity)
     }, [cart])
-
-    useEffect(() => {
-        console.log(total);
-    }, [total]);
 
     return (
         <nav className='navbar'>

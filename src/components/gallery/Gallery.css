@@ -3,20 +3,8 @@
     margin: 0 auto;
 }
 
-.products-list{
-    list-style: none;
+.pagination{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.products-list li{
-    width: 22%;
-}
-
-.link-no-decoration {
-    text-decoration: none;
-}
-.link-no-decoration:visited{
-    color: #474747;
+    justify-content: center;
+    margin-top: 50px;
 }

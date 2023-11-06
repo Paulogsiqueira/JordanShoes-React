@@ -16,7 +16,7 @@ const CreditCart = () => {
     const [flag, setFlag] = useState("")
     const navigate = useNavigate()
 
-    console.log(errors)
+
     useEffect(() => {
         let totalPrice = 0;
         for (let i = 0; i < cart.length; i++) {

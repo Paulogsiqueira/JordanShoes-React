@@ -1,0 +1,47 @@
+.products-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products-list li{
+    width: 22%;
+}
+
+.link-no-decoration {
+    text-decoration: none;
+}
+.link-no-decoration:visited{
+    color: #474747;
+}
+
+.filter-products{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-text{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
+    height: 20px;
+    border-radius:10px ;
+    background-color: #e9e8e8;
+    padding: 5px 10px;
+    font-family: 'Roboto Slab', sans-serif;
+    color:#474747;
+    border:1px solid #474747;
+
+}
+.filter-label{
+    width: 10%;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Roboto Slab', sans-serif;
+    justify-content: end;
+    color:#474747
+    
+}

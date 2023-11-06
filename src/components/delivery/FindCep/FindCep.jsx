@@ -31,9 +31,6 @@ const FindCep = () => {
                 console.error("Ocorreu um erro na consulta de CEP:");
             });
     }
-    useEffect(() => {
-        console.log(address)
-    }, [address])
 
     return (
         <div>

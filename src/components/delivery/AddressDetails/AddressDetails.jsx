@@ -12,10 +12,8 @@ const AddressDetails = () => {
     const { register, handleSubmit, formState: { errors },setValue } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data.cep)
         setOrderDetails(true)
     }
-    console.log(errors)
 
     useEffect(() => {
         if (address.logradouro) {
