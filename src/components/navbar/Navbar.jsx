@@ -1,7 +1,7 @@
 import './Navbar.css'
 import { NavLink, Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
-import logo from '../../img/logo/jordan.png';
+import logo from '../../img/logo/shoes.png';
 import { LoginContext } from '../../context/LoginContext'
 import { CartContext } from '../../context/CartContext';
 import cartIcon from '../../img/icon/cart.png';
@@ -31,12 +31,12 @@ const NavBar = () => {
         <nav className='navbar'>
             <div className='navbar-logo'>
                 <img src={logo} alt="Logo Jordan" />
-                <h2>Jordan Shoes</h2>
+                <h2>Nike Shoes</h2>
             </div>
             <div className='navbar-links'>
                 <ul className='navbar-list'>
                     <li>
-                        <NavLink to="/">
+                        <NavLink to="/" className='navbar-link'>
                             Home
                         </NavLink>
                     </li>
@@ -51,9 +51,9 @@ const NavBar = () => {
                             </NavLink>
                         </li>
                     }
-                    {login != 'true' && <li><NavLink to="/login">Entrar</NavLink></li>}
-                    {login != 'true' && <li><NavLink to="/register">Cadastrar</NavLink></li>}
-                    {login == 'true' && <li><Link to="/" onClick={endSession}>Sair</Link> </li>}
+                    {login != 'true' && <li><NavLink className='navbar-link' to="/login">Entrar</NavLink></li>}
+                    {login != 'true' && <li><NavLink className='navbar-link'to="/register">Cadastrar</NavLink></li>}
+                    {login == 'true' && <li><Link className='navbar-link' to="/" onClick={endSession}>Sair</Link> </li>}
                 </ul>
             </div>
 

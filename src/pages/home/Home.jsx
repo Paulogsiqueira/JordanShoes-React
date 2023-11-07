@@ -5,11 +5,11 @@ import Wallpaper from '../../img/wallpaper/wallpaper.jpeg'
 const Home = () => {
   return (
     <div className='home'>
-      <h1>Jordan Shoes</h1>
+
       <header className='home-header' >
         <div className='home-img'>
-          <h2>A Melhor Loja de Jordan</h2>
-          <p>O tênis Jordan é fruto de uma velha e forte parceria entre a Nike e o jogador Michael Jordan</p>
+          <h2>A Melhor Loja de Tênis Nike</h2>
+          <p>Liberte o seu potencial, ultrapasse limites e alcance o extraordinário.<br/> Com a Nike, você não é apenas um atleta, você é uma força imparável. Just Do It</p>
         </div>
       </header>
       <div>

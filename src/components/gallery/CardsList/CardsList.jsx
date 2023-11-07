@@ -48,7 +48,7 @@ export const CardsList = ({ page, changeCount }) => {
                     <label className='filter-label'>
                         Nome do produto
                     </label>
-                    <input type="text" className='filter-text' placeholder='Digite o filtro que deseja aplicar' value={filter} onChange={(e) => (setFilter(e.target.value))} />
+                    <input type="text" className='filter-text' placeholder='Digite o nome do produto que esta buscando' value={filter} onChange={(e) => (setFilter(e.target.value))} />
                     <button className='btn' onClick={handleFilter}>Buscar</button>
                 </div>
                 <ul className='products-list'>
