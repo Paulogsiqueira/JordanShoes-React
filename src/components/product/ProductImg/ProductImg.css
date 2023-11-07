@@ -57,9 +57,9 @@
     position: absolute;
     background-repeat: no-repeat;
     border: 2px solid #FFF;
-    width: 200px;
-    height: 200px;
-    background-size: 400%;
+    width: 230px;
+    height: 230px;
+    background-size: 300%;
     background-position: center;
     pointer-events: none;
     border-radius: 50%;
