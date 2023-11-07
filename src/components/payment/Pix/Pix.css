@@ -52,3 +52,25 @@
     justify-content: center;
     margin: 15px auto;
 }
+
+.modalPix{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalPix h3 {
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+    color:#0BB07B;
+}
+.modalPix p {
+    text-align: center;
+    font-family: 'Roboto Slab', sans-serif;
+    color:#474747;
+}
+.modalPix img {
+    width: 200px;
+    height: 200px;
+    margin: 0px auto 30px auto;
+}

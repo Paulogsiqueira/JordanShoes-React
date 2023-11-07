@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import close from '../../../img/icon/close.png';
-import error from '../../../img/icon/error.png';
+import complete from '../../../img/icon/complete.png';
 import pix from '../../../img/payment/pix.png'
 import './Pix.css'
 
@@ -38,6 +38,7 @@ const Pix = () => {
 
     const closeModal = () => {
         setModalErrorIsOpen(false)
+        navigate("/")
 
     }
 
@@ -69,10 +70,10 @@ const Pix = () => {
                     <div className='modal-close'>
                         <button onClick={() => { closeModal() }}><img src={close} /></button>
                     </div>
-                    <div className='modalError-title'>
-                        <img src={error} />
-                        <p>Agredecemos pela preferência</p>
-                        <p>Assim que for o pedido for aprovado você será notificado por e-mail</p>
+                    <div className='modalPix'>
+                        <img src={complete} />
+                        <h3>Agredecemos pela preferência</h3>
+                        <p>Assim que o pedido for aprovado você será notificado por e-mail</p>
                     </div>
                     <div className='modal-btn'>
                         <button onClick={() => closeModal()} className='modal-btn__cart'>OK</button>

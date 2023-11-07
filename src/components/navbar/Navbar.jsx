@@ -31,7 +31,10 @@ const NavBar = () => {
         <nav className='navbar'>
             <div className='navbar-logo'>
                 <img src={logo} alt="Logo Jordan" />
-                <h2>Nike Shoes</h2>
+                <Link to="/" className='logo-title'>
+                    <h2>Nike Shoes</h2>
+                </Link>
+
             </div>
             <div className='navbar-links'>
                 <ul className='navbar-list'>
@@ -52,7 +55,7 @@ const NavBar = () => {
                         </li>
                     }
                     {login != 'true' && <li><NavLink className='navbar-link' to="/login">Entrar</NavLink></li>}
-                    {login != 'true' && <li><NavLink className='navbar-link'to="/register">Cadastrar</NavLink></li>}
+                    {login != 'true' && <li><NavLink className='navbar-link' to="/register">Cadastrar</NavLink></li>}
                     {login == 'true' && <li><Link className='navbar-link' to="/" onClick={endSession}>Sair</Link> </li>}
                 </ul>
             </div>

@@ -6,10 +6,14 @@
     max-width: 100vw;
 }
 
-.navbar h2 {
+.navbar-logo h2 {
     font-family: 'Sedgwick Ave Display';
     font-size: 28px;
     color: #FFF;
+    transition: scale 1s;
+}
+.navbar-logo:hover {
+    scale:1.1;
 }
 
 .navbar-logo {
@@ -90,3 +94,8 @@
     color: #FFF;
     font-family: 'Roboto Slab', sans-serif;
 }
+
+.logo-title {
+    text-decoration: none;
+}
+
