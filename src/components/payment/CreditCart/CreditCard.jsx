@@ -1,5 +1,6 @@
 import { FreightContext } from '../../../context/FreightContext';
 import { CartContext } from '../../../context/CartContext';
+import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../methods/form';
@@ -11,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const CreditCart = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
+    const { orderDetails, setOrderDetails } = useContext(OrderDetailsContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [total, setTotal] = useState(0);
     const [flag, setFlag] = useState("")
@@ -27,6 +29,8 @@ const CreditCart = () => {
 
     const onSubmit = () => {
         setCart([])
+        setFreight(0)
+        setOrderDetails(false)
         navigate('/paymentComplete')
     }
 

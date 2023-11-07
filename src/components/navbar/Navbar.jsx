@@ -41,8 +41,8 @@ const NavBar = () => {
                         </NavLink>
                     </li>
                     {login == 'true' &&
-                        <li>
-                            <NavLink to='/cart'>
+                        <li >
+                            <NavLink to='/cart' className='navbar-cart'>
                                 <div className='cart'>
                                     <img src={cartIcon} alt="Ícone carrinho de compras" />
                                     <p>{cart == undefined ? 0 : quantity} Itens</p>

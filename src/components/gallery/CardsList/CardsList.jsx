@@ -8,7 +8,7 @@ export const CardsList = ({ page, changeCount }) => {
     const [filter, setFilter] = useState('')
     const [productsPage, setProductsPage] = useState([])
 
-    const selectProductsPage = () =>{
+    const selectProductsPage = () => {
         if (page == 1) {
             setProductsPage(products.slice(0, 8))
         } else {
@@ -19,26 +19,26 @@ export const CardsList = ({ page, changeCount }) => {
     }
 
     useEffect(() => {
-       selectProductsPage()
+        selectProductsPage()
     }, [page])
 
     useEffect(() => {
-        
-     }, [productsPage])
+
+    }, [productsPage])
 
     const handleFilter = () => {
-        if(filter != ""){
+        if (filter != "") {
             const filteredProducts = products.filter((produto) => produto.name.includes(filter));
             setProductsPage(filteredProducts)
-            if(filteredProducts.length > 8){
+            if (filteredProducts.length > 8) {
                 changeCount(2)
-            }else{
+            } else {
                 changeCount(1)
             }
-        }else{
+        } else {
             selectProductsPage()
             changeCount(2)
-        }     
+        }
     }
 
     return (
@@ -52,13 +52,16 @@ export const CardsList = ({ page, changeCount }) => {
                     <button className='btn' onClick={handleFilter}>Buscar</button>
                 </div>
                 <ul className='products-list'>
-                    {productsPage.map((product, index) => (
-                        <li key={index}>
-                            <Link to={`/product/${index}`} className="link-no-decoration">
-                                <Card product={product} />
-                            </Link>
-                        </li>
-                    ))}
+                    {productsPage.map((product, index) => {
+                        const adjustedIndex = page === 1 ? index : index + (8 * (page - 1));
+                        return (
+                            <li key={index}>
+                                <Link to={`/product/${adjustedIndex}`} className="link-no-decoration">
+                                    <Card product={product} />
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         </div>

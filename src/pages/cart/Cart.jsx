@@ -1,15 +1,19 @@
 import './Cart.css'
 import { CartContext } from '../../context/CartContext';
 import { FreightContext } from '../../context/FreightContext';
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Modal from 'react-modal';
 import Resume from '../../components/payment/Resume/Resume';
 import Freight from '../../components/cart/Freight/Freight';
 import Itens from '../../components/cart/Itens/Itens';
+import close from '../../img/icon/close.png';
+import error from '../../img/icon/error.png';
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext)
   const { freight, setFreight } = useContext(FreightContext)
+  const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
 
   const navigate = useNavigate()
 
@@ -17,8 +21,16 @@ const Cart = () => {
     if (freight > 1) {
       navigate('/payment')
     } else {
-      alert("Calcule o valor do frete antes de finalizar a compra")
+      openModalError()
     }
+  }
+
+  const openModalError = () => {
+    setModalErrorIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalErrorIsOpen(false)
   }
 
   return (
@@ -39,6 +51,22 @@ const Cart = () => {
         <h2>Carrinho vazio</h2>
         <p> Volte a nossa página incial e escolha os produtos que mais combinam com você!</p>
       </div>}
+      <Modal
+        isOpen={modalErrorIsOpen}
+        onRequestClose={closeModal}
+        className='modal-content'>
+        <div className='modal'>
+          <div className='modal-close'>
+            <button onClick={() => { closeModal() }}><img src={close} /></button>
+          </div>
+          <div className='modalError-title'>
+            <p>Por favor calcule o valor do frete antes de finalizar a compra</p>
+          </div>
+          <div className='modal-btn'>
+            <button onClick={() => { closeModal() }} className='modal-btn__cart'>OK</button>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }

@@ -29,14 +29,12 @@
     width: 80%;
 }
 
-.login input::placeholder,
-textarea::placeholder{
-    font-family: "Montserrat", sans-serif;
+.login input::placeholder{
+    font-family: 'Roboto Slab', sans-serif;
     color: #AAA
 }
 
-.login input:focus,
-textarea:focus{
+.login input:focus{
     outline: none;
 }
 label{
@@ -51,7 +49,7 @@ label span{
     text-align: left;
 }
 
-.login input, textarea{
+.login input{
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #CCC;

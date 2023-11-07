@@ -14,7 +14,7 @@ const Resume = () => {
             totalPrice += cart[i].price * cart[i].quantity;
         }
         setTotal(totalPrice)
-    }, []);
+    }, [cart]);
 
     return (
         <div>

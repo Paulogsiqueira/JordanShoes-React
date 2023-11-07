@@ -9,7 +9,7 @@
 .navbar h2 {
     font-family: 'Sedgwick Ave Display';
     font-size: 28px;
-    color:#FFF;
+    color: #FFF;
 }
 
 .navbar-logo {
@@ -29,7 +29,7 @@
 
 }
 
-.navbar-links{
+.navbar-links {
     margin-right: 10px;
 }
 
@@ -41,18 +41,18 @@
 
 .cart {
     display: flex;
-    border: 2px solid #00AEFF;
+    border: 2px solid #f8f8f8;
     align-items: center;
     justify-content: space-between;
     padding: 0px 10px;
-    background-color: #00AEFF;
-    width: 150px;
-    border-radius: 5px;
+    background-color: #0BB07B;
+    min-width: 170px;
+    border-radius: 25px;
     height: 35px;
     margin-top: -10px;
 }
 
-.cart p{
+.cart p {
     color: #FFF;
 }
 
@@ -60,12 +60,14 @@
     width: 24px;
     height: 24px;
 }
-.navbar-link{
+
+.navbar-link {
     text-decoration: none;
     color: #FFF;
     font-family: 'Roboto Slab', sans-serif;
 }
-.navbar-link:hover{
+
+.navbar-link:hover {
     background: #474747;
     color: #FFFFFF;
     text-decoration: none;
@@ -73,11 +75,18 @@
     border-radius: 5px;
     font-family: 'Roboto Slab', sans-serif;
 }
+
 .active {
     background: #0BB076;
     color: #FFFFFF;
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+.navbar-cart {
+    text-decoration: none;
+    color: #FFF;
     font-family: 'Roboto Slab', sans-serif;
 }

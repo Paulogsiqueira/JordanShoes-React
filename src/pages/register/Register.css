@@ -1,12 +1,12 @@
 .register{
     text-align: center;
     margin-top: 70px;
-    
 }
 
 .register p{
     color: #aaa;
     margin-bottom: 70px;
+
 }
 
 .register form{
@@ -28,14 +28,12 @@
     width: 80%;
 }
 
-.register input::placeholder,
-textarea::placeholder{
-    font-family: "Montserrat", sans-serif;
+.register input::placeholder{
+    font-family: 'Roboto Slab', sans-serif;
     color: #AAA
 }
 
-.register input:focus,
-textarea:focus{
+.register input:focus{
     outline: none;
 }
 label{
@@ -50,7 +48,7 @@ label span{
     text-align: left;
 }
 
-.register input, textarea{
+.register input{
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #CCC;
