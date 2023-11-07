@@ -1,5 +1,6 @@
 .product-details{
     width: 50%;
+    padding-right: 20px;
 }
 
 .product-description {
@@ -22,8 +23,7 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     width: 90%;
-    height: 70px;
-
+    height: 100%;
 }
 
 .payment-cash,
@@ -61,6 +61,7 @@
 }
 
 .add-cart {
+    width: 130px;
     height: 70px;
     margin-top: 25px;
     margin-right: 20px;
