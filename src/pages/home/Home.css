@@ -33,9 +33,7 @@
     padding-left: 70px;
     width: 100%;
     box-sizing: border-box;
-    
 }
-
 
 .home p {
     color:#474747;
@@ -43,8 +41,9 @@
 }
 
 .home-img p, .home-img h2{
-    color:#FFF;
+    color:#FFF;  
 }
+
 .home p{
-    font-family: 'Playpen Sans';
+    font-family: 'Roboto Slab', sans-serif;
 }

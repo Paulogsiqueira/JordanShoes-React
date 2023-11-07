@@ -65,10 +65,11 @@ label span{
     cursor: pointer;
     border-radius: 10px;
     width: 120px;
-    font-weight: bold;
+    font-weight: 500;
     border: none;
     padding: 10px 15px;
-    font-size: 1em;
+    font-size: 1.1em;
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 .btn:hover{
