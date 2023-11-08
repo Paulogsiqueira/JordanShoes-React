@@ -1,7 +1,7 @@
 import './Payment.css'
 import payment from '../../img/icon/payment.png'
 import { useState } from 'react'
-import CreditCart from './CreditCart/CreditCard';
+import CreditCard from './CreditCard/CreditCard';
 import Pix from '../../components/payment/Pix/Pix';
 
 const Payment = () => {
@@ -21,7 +21,7 @@ const Payment = () => {
                                 <label htmlFor="cartao">Cartão de Crédito</label>
                             </div>
                             <div style={{ display: paymentOption == "cart" ? 'block' : 'none' }}>
-                                <CreditCart />
+                                <CreditCard />
                             </div>
 
                             <div className='payment-option'>

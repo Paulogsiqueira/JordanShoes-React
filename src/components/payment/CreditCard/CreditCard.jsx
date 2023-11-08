@@ -9,7 +9,7 @@ import './CreditCard.css'
 import { useNavigate } from 'react-router-dom';
 
 
-const CreditCart = () => {
+const CreditCard = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
     const { orderDetails, setOrderDetails } = useContext(OrderDetailsContext)
@@ -139,4 +139,4 @@ const CreditCart = () => {
         </div>
     )
 }
-export default CreditCart
+export default CreditCard
