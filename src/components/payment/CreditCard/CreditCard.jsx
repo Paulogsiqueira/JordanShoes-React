@@ -7,6 +7,7 @@ import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handl
 import Flag from './Flag/Flag.jsx'
 import './CreditCard.css'
 import { useNavigate } from 'react-router-dom';
+import { calcPrice } from '../../../methods/price';
 
 
 const CreditCard = () => {
@@ -20,10 +21,7 @@ const CreditCard = () => {
 
 
     useEffect(() => {
-        let totalPrice = 0;
-        for (let i = 0; i < cart.length; i++) {
-            totalPrice += cart[i].price * cart[i].quantity;
-        }
+        let totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, []);
 

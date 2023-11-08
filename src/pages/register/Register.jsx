@@ -12,7 +12,6 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         setError("");
 
         /*  Validação de E-mail  */

@@ -1,6 +1,7 @@
 import { CartContext } from '../../../context/CartContext';
 import { FreightContext } from '../../../context/FreightContext';
 import { useState, useContext, useEffect } from 'react'
+import { calcPrice } from '../../../methods/price';
 import bin from '../../../img/icon/bin.png'
 import './Itens.css'
 
@@ -10,10 +11,7 @@ const Itens = () => {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        let totalPrice = 0;
-        for (let i = 0; i < cart.length; i++) {
-            totalPrice += cart[i].price * cart[i].quantity;
-        }
+        let totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, [cart])
 
