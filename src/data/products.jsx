@@ -3,7 +3,7 @@ export const products = [
         name: 'Air Jordan 1 Mid',
         description: 'O Air Jordan 1 Mid é uma versão intermediária do icônico tênis Air Jordan 1, criado em parceria com Michael Jordan. Conhecido por seu estilo versátil, ele preserva elementos clássicos do design, como o Swoosh e a entressola Air, oferecendo conforto e estilo excepcionais',
         price: 1299.99,
-        img: require('../../../public/products/Air Jordan 1 Mid/1.png'),
+        img: '../../../public/products/Air Jordan 1 Mid/1.png',
         othersImg: [
             '../../../public/products/Air Jordan 1 Mid/2.png',
             '../../../public/products/Air Jordan 1 Mid/3.png',
