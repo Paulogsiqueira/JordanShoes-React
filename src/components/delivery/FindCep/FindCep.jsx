@@ -1,4 +1,4 @@
-import { handleInputChangeCep } from '../../../methods/form';
+import { handleInputChangeCep } from '../../../utils/form';
 import { AddressContext } from '../../../context/AddressContext';
 import { useForm } from 'react-hook-form';
 import { useContext, useEffect, useState } from 'react'

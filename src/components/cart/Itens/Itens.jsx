@@ -1,7 +1,7 @@
 import { CartContext } from '../../../context/CartContext';
 import { FreightContext } from '../../../context/FreightContext';
 import { useState, useContext, useEffect } from 'react'
-import { calcPrice } from '../../../methods/price';
+import { calcPrice } from '../../../utils/price';
 import bin from '../../../img/icon/bin.png'
 import './Itens.css'
 

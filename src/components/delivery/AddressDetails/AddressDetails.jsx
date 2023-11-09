@@ -1,4 +1,4 @@
-import { handleInputChangeCell } from '../../../methods/form';
+import { handleInputChangeCell } from '../../../utils/form';
 import { AddressContext } from '../../../context/AddressContext';
 import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
 import { useState, useContext, useEffect } from 'react'

@@ -3,11 +3,11 @@ import { CartContext } from '../../../context/CartContext';
 import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
-import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../methods/form';
+import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../utils/form';
 import Flag from './Flag/Flag.jsx'
 import './CreditCard.css'
 import { useNavigate } from 'react-router-dom';
-import { calcPrice } from '../../../methods/price';
+import { calcPrice } from '../../../utils/price';
 
 
 const CreditCard = () => {

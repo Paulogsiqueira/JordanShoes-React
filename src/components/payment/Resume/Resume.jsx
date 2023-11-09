@@ -2,7 +2,7 @@ import './Resume.css'
 import { FreightContext } from '../../../context/FreightContext';
 import { CartContext } from '../../../context/CartContext';
 import { useState, useContext, useEffect } from 'react'
-import { calcPrice } from '../../../methods/price';
+import { calcPrice } from '../../../utils/price';
 
 const Resume = () => {
     const { freight, setFreight } = useContext(FreightContext)

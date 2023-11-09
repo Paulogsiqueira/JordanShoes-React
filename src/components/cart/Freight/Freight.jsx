@@ -1,6 +1,6 @@
 import { FreightContext } from '../../../context/FreightContext';
 import { useState, useContext, useEffect } from 'react'
-import { handleInputChangeCep } from '../../../methods/form';
+import { handleInputChangeCep } from '../../../utils/form';
 import { useForm } from 'react-hook-form';
 import './Freight.css'
 
