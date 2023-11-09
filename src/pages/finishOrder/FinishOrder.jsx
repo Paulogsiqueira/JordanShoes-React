@@ -3,7 +3,6 @@ import Payment from "../../components/payment/Payment"
 import Resume from "../../components/payment/Resume/Resume"
 import './FinishOrder.css'
 
-
 const finishOrder = () => {
     return (
         <div className="finishOrder-page">

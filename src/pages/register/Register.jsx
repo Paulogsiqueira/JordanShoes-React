@@ -26,7 +26,7 @@ const Register = () => {
             return
         }
 
-        let usuario = [email, password];
+        const usuario = [email, password];
         localStorage.setItem("usuario", usuario);
 
         setDisplayName("");

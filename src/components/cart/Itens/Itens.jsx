@@ -1,17 +1,16 @@
 import { CartContext } from '../../../context/CartContext';
-import { FreightContext } from '../../../context/FreightContext';
 import { useState, useContext, useEffect } from 'react'
 import { calcPrice } from '../../../utils/price';
+import fallBackImage from '../../../img/icon/no-image.png'
 import bin from '../../../img/icon/bin.png'
 import './Itens.css'
 
 const Itens = () => {
     const { cart, setCart } = useContext(CartContext)
-    const { freight, setFreight } = useContext(FreightContext)
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        let totalPrice = calcPrice(cart);
+         const totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, [cart])
 
@@ -45,7 +44,7 @@ const Itens = () => {
                     <li key={index} >
                         <div className='cart-item'>
                             <section className='item-img'>
-                                <img src={product.img} alt="Foto do tenis selecionado" />
+                                <img src={product.img} alt="Foto do tenis selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }} />
                             </section>
                             <section className='item-desc'>
                                 <h3>{product.name}</h3>

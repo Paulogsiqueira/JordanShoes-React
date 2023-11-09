@@ -1,8 +1,8 @@
-import './Resume.css'
 import { FreightContext } from '../../../context/FreightContext';
 import { CartContext } from '../../../context/CartContext';
 import { useState, useContext, useEffect } from 'react'
 import { calcPrice } from '../../../utils/price';
+import './Resume.css'
 
 const Resume = () => {
     const { freight, setFreight } = useContext(FreightContext)
@@ -10,7 +10,7 @@ const Resume = () => {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        let totalPrice = calcPrice(cart);
+        const totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, [cart]);
 

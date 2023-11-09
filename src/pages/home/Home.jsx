@@ -1,6 +1,5 @@
-import './Home.css'
 import Gallery from '../../components/gallery/Gallery'
-import Wallpaper from '../../img/wallpaper/wallpaper.jpeg'
+import './Home.css'
 
 const Home = () => {
   return (

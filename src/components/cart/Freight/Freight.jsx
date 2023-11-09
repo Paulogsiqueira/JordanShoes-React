@@ -1,5 +1,5 @@
 import { FreightContext } from '../../../context/FreightContext';
-import { useState, useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { handleInputChangeCep } from '../../../utils/form';
 import { useForm } from 'react-hook-form';
 import './Freight.css'
@@ -7,8 +7,6 @@ import './Freight.css'
 const Freight = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
-
-
 
     const onSubmit = () => {
        setFreight(Math.random() * 15 + 15)

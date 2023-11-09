@@ -1,10 +1,11 @@
+import fallBackImage from '../../../img/icon/no-image.png'
 import './Card.css'
 
 const Card = ({ product }) => {
     return (
         <div className='products-item'>
             <div className='card-img'>
-                <img className='products-img' src={product.img} />
+                <img className='products-img' src={product.img} alt="Imagem do modelo de tênis" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}  />
             </div>
             <div className='card-description'>
                 <h3>{product.name}</h3>

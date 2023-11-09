@@ -1,7 +1,7 @@
-import './Login.css'
 import { useState,useContext } from 'react'
 import { LoginContext } from '../../context/LoginContext'
 import { useNavigate } from 'react-router-dom'
+import './Login.css'
 
 const Login = () => {
 
@@ -16,10 +16,10 @@ const Login = () => {
 
     setError("")
 
-    let user = localStorage.getItem('usuario');
-    let userInfo = user.split(",")
-    let emailUser = userInfo[0];
-    let passwordUser = userInfo[1];
+    const user = localStorage.getItem('usuario');
+    const userInfo = user.split(",")
+    const emailUser = userInfo[0];
+    const passwordUser = userInfo[1];
 
     if (email != emailUser) {
       setError("Email não cadastrado")

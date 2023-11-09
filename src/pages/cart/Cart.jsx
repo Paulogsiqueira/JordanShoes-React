@@ -1,4 +1,3 @@
-import './Cart.css'
 import { CartContext } from '../../context/CartContext';
 import { FreightContext } from '../../context/FreightContext';
 import { useContext, useState } from 'react'
@@ -8,7 +7,7 @@ import Resume from '../../components/payment/Resume/Resume';
 import Freight from '../../components/cart/Freight/Freight';
 import Itens from '../../components/cart/Itens/Itens';
 import close from '../../img/icon/close.png';
-import error from '../../img/icon/error.png';
+import './Cart.css'
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext)
@@ -57,13 +56,13 @@ const Cart = () => {
         className='modal-content'>
         <div className='modal'>
           <div className='modal-close'>
-            <button onClick={() => { closeModal() }}><img src={close} /></button>
+            <button onClick={closeModal}><img src={close} /></button>
           </div>
           <div className='modalError-title'>
             <p>Por favor calcule o valor do frete antes de finalizar a compra</p>
           </div>
           <div className='modal-btn'>
-            <button onClick={() => { closeModal() }} className='modal-btn__cart'>OK</button>
+            <button onClick={closeModal} className='modal-btn__cart'>OK</button>
           </div>
         </div>
       </Modal>

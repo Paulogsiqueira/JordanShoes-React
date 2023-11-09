@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { CardsList } from './CardsList/CardsList'
-import './Gallery.css'
 import { Pagination } from '@mui/material'
+import './Gallery.css'
 
 const Gallery = () => {
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(2)
 
     const handlePagination = (e) => {
-        let newPage = e.target.innerHTML[0]
+        const newPage = e.target.innerHTML[0]
         setPage(newPage)
     }
 

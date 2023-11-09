@@ -33,7 +33,7 @@ const Product = () => {
   return (
     <div className='product'>
       <ProductImg item={id} />
-      <ProductDetails item={id} openModalFunc={() => { openModal() }} openModalErrorFunc={() => { openModalError() }} />
+      <ProductDetails item={id} openModalFunc={openModal} openModalErrorFunc={openModalError} />
 
       <Modal
         isOpen={modalIsOpen}
@@ -59,7 +59,7 @@ const Product = () => {
         className='modal-content'>
         <div className='modal'>
           <div className='modal-close'>
-            <button onClick={() => { closeModal() }}><img src={close} /></button>
+            <button onClick={closeModal}><img src={close} /></button>
           </div>
           <div className='modalError-title'>
             <img src={error} />

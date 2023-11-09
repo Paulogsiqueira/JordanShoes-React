@@ -3,14 +3,14 @@ export const handleInputChange = (e) => {
     e.target.value = e.target.value.replace(/\D/g, '');
 };
 export const handleInputChangeCpf = (e) => {
-    let cpf = e.target.value.replace(/\D/g, '');
+    const cpf = e.target.value.replace(/\D/g, '');
     if (cpf.length == 11) {
         cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
     }
     e.target.value = cpf
 };
 export const handleInputChangeNumber = (e) => {
-    let number = e.target.value.replace(/\D/g, '');
+    const number = e.target.value.replace(/\D/g, '');
     if (number.length == 16) {
         number = number.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, '$1 $2 $3 $4')
     }else if(number.length == 15){
@@ -19,7 +19,7 @@ export const handleInputChangeNumber = (e) => {
     e.target.value = number
 };
 export const handleInputChangeValidity = (e) => {
-    let validity = e.target.value.replace(/\D/g, '');
+    const validity = e.target.value.replace(/\D/g, '');
     if (validity.length == 6) {
         validity = validity.replace(/(\d{2})(\d{4})/, '$1/$2')
     }
@@ -27,7 +27,7 @@ export const handleInputChangeValidity = (e) => {
 };
 
 export const handleInputChangeCep = (e) => {
-    let cep = e.target.value.replace(/\D/g, '');
+    const cep = e.target.value.replace(/\D/g, '');
     if (cep.length == 8)  {
         cep = cep.slice(0, 5) + '-' + cep.slice(5);
     }
@@ -35,7 +35,7 @@ export const handleInputChangeCep = (e) => {
 }
 
 export const handleInputChangeCell = (e) => {
-    let cell = e.target.value.replace(/\D/g, '');
+    const cell = e.target.value.replace(/\D/g, '');
     if (cell.length == 11) {
         cell = cell.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
     }
@@ -48,19 +48,19 @@ export const validarCPF = (cpf) => {
     if (cpf.length !== 11) {
         return false;
     }
-    let soma = 0;
-    for (let i = 0; i < 9; i++) {
+    const soma = 0;
+    for (const i = 0; i < 9; i++) {
         soma += parseInt(cpf.charAt(i)) * (10 - i);
     }
-    let primeiroDigito = 11 - (soma % 11);
+    const primeiroDigito = 11 - (soma % 11);
 
     primeiroDigito = primeiroDigito > 9 ? 0 : primeiroDigito;
 
     soma = 0;
-    for (let i = 0; i < 10; i++) {
+    for (const i = 0; i < 10; i++) {
         soma += parseInt(cpf.charAt(i)) * (11 - i);
     }
-    let segundoDigito = 11 - (soma % 11);
+    const segundoDigito = 11 - (soma % 11);
 
     segundoDigito = segundoDigito > 9 ? 0 : segundoDigito;
 

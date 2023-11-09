@@ -1,5 +1,4 @@
 import visa from '../../../../img/payment/visa.png'
-import paypal from '../../../../img/payment/paypal.png'
 import amex from '../../../../img/payment/amex.png'
 import discover from '../../../../img/payment/discover.png'
 import mastercard from '../../../../img/payment/mastercard.png'

@@ -12,8 +12,8 @@ export const CardsList = ({ page, changeCount }) => {
         if (page == 1) {
             setProductsPage(products.slice(0, 8))
         } else {
-            let productIni = 8 * (page - 1);
-            let productFin = productIni + 8;
+            const productIni = 8 * (page - 1);
+            const productFin = productIni + 8;
             setProductsPage(products.slice(productIni, productFin));
         }
     }

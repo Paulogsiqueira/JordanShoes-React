@@ -19,7 +19,7 @@ const Pix = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        let totalPrice = calcPrice(cart);
+        const totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, [cart]);
 
@@ -58,7 +58,7 @@ const Pix = () => {
                     <p><strong>Conta: </strong>5703 4128 1759 2321</p>
                 </div>
                 <p>Após realizar o pagamento, clique no botão abaixo</p>
-                <button className='btn-pix' onClick={() => handlePayment()}>Pagamento realizado!</button>
+                <button className='btn-pix' onClick={handlePayment}>Pagamento realizado!</button>
             </div>
             <Modal
                 isOpen={modalErrorIsOpen}
@@ -66,7 +66,7 @@ const Pix = () => {
                 className='modal-content'>
                 <div className='modal'>
                     <div className='modal-close'>
-                        <button onClick={() => { closeModal() }}><img src={close} /></button>
+                        <button onClick={closeModal}><img src={close} /></button>
                     </div>
                     <div className='modalPix'>
                         <img src={complete} />
@@ -74,7 +74,7 @@ const Pix = () => {
                         <p>Assim que o pedido for aprovado você será notificado por e-mail</p>
                     </div>
                     <div className='modal-btn'>
-                        <button onClick={() => closeModal()} className='modal-btn__cart'>OK</button>
+                        <button onClick={closeModal} className='modal-btn__cart'>OK</button>
                     </div>
                 </div>
             </Modal>

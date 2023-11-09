@@ -1,14 +1,14 @@
 import { products } from '../../../data/products.jsx';
 import { useEffect, useState } from 'react';
+import fallBackImage from '../../../img/icon/no-image.png'
 import teste from '../../../img/icon/teste.png';
 import './ProductImg.css'
 
 const ProductImg = (props) => {
-    const [mainImg, setMainImg] = useState(products[props.item].img)
+    const id = props.item;
+    const [mainImg, setMainImg] = useState(products[id].img)
     const [magnifyStyle, setMagnifyStyle] = useState({ backgroundImage: `url('${mainImg}')` })
     const [showImg, setShowImg] = useState(mainImg)
-    const MAGNIFY_SIZE = 200;
-
 
     const handleMouseMove = (e) => {
         const { offsetX, offsetY, target } = e.nativeEvent;
@@ -34,11 +34,11 @@ const ProductImg = (props) => {
             <div className='product-gallery'>
                 <ul>
                     <li>
-                        <img draggable={false} src={products[props.item].img} onClick={() => setMainImg(products[props.item].img)} alt="Imagem do modelo selecionado" />
+                        <img draggable={false} src={products[id].img} onClick={() => setMainImg(products[id].img)} alt="Imagem do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
                     </li>
-                    {products[props.item].othersImg.map((image, index) => (
+                    {products[id].othersImg.map((image, index) => (
                         <li key={index}>
-                            <img src={image} draggable={false} onClick={() => setMainImg(image)} alt="Posições diferentes do modelo selecionado" />
+                            <img src={image} draggable={false} onClick={() => setMainImg(image)} alt="Posições diferentes do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
                         </li>
                     ))}
                 </ul>

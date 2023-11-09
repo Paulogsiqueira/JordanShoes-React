@@ -1,13 +1,13 @@
+import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../utils/form';
 import { FreightContext } from '../../../context/FreightContext';
 import { CartContext } from '../../../context/CartContext';
 import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
 import { useState, useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
-import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../utils/form';
-import Flag from './Flag/Flag.jsx'
-import './CreditCard.css'
 import { useNavigate } from 'react-router-dom';
 import { calcPrice } from '../../../utils/price';
+import Flag from './Flag/Flag.jsx'
+import './CreditCard.css'
 
 
 const CreditCard = () => {
@@ -21,7 +21,7 @@ const CreditCard = () => {
 
 
     useEffect(() => {
-        let totalPrice = calcPrice(cart);
+        const totalPrice = calcPrice(cart);
         setTotal(totalPrice)
     }, []);
 
@@ -33,7 +33,7 @@ const CreditCard = () => {
     }
 
     const selectCardFlag = (e) => {
-        let number = e.target.value
+        const number = e.target.value
         number = number.replace(/\D/g, '');
         if (number[0] == 3 && number.length == 15) {
             setFlag("Amex")
