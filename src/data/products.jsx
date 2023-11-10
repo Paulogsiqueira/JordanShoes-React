@@ -5,7 +5,7 @@ export const products = [
         price: 1299.99,
         img: '/products/Air Jordan 1 Mid/1.png',
         othersImg: [
-            './products/Air Jordan 1 Mid/2.png',
+            '/products/Air Jordan 1 Mid/2.png',
             '/products/Air Jordan 1 Mid/3.png',
             '/products/Air Jordan 1 Mid/4.png',
             '/products/Air Jordan 1 Mid/5.png',
