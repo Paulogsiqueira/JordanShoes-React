@@ -1,7 +1,7 @@
-import { FreightContext } from '../../../context/FreightContext';
-import { CartContext } from '../../../context/CartContext';
+import { FreightContext } from '@/context/FreightContext';
+import { CartContext } from '@/context/CartContext';
 import { useState, useContext, useEffect } from 'react'
-import { calcPrice } from '../../../utils/price';
+import { calcPrice } from '@/utils/price';
 import './Resume.css'
 
 const Resume = () => {

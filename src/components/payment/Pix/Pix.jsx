@@ -1,13 +1,13 @@
-import { FreightContext } from '../../../context/FreightContext';
-import { CartContext } from '../../../context/CartContext';
-import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
+import { FreightContext } from '@/context/FreightContext';
+import { CartContext } from '@/context/CartContext';
+import { OrderDetailsContext } from '@/context/OrderDetailsContext';
 import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { calcPrice } from '../../../utils/price';
+import { calcPrice } from '@/utils/price';
 import Modal from 'react-modal';
-import close from '../../../img/icon/close.png';
-import complete from '../../../img/icon/complete.png';
-import pix from '../../../img/payment/pix.png'
+import close from '@/img/icon/close.png';
+import complete from '@/img/icon/complete.png';
+import pix from '@/img/payment/pix.png'
 import './Pix.css'
 
 const Pix = () => {

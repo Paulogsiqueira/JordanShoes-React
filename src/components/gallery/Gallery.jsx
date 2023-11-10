@@ -7,9 +7,8 @@ const Gallery = () => {
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(2)
 
-    const handlePagination = (e) => {
-        const newPage = e.target.innerHTML[0]
-        setPage(newPage)
+    const handlePagination = (value) => {
+        setPage(value)
     }
 
     const changeCount  = (value) => {
@@ -20,7 +19,7 @@ const Gallery = () => {
         <div className='products'>
             <div className='gallery'>
                 <CardsList page={page} changeCount={changeCount} />
-                <Pagination count={count} variant="outlined" color="primary" className='pagination' onChange={(e) => (handlePagination(e))} />
+                <Pagination count={count} variant="outlined" color="primary" className='pagination' onChange={(e,value) => handlePagination(value)} />
             </div>
         </div>
     )

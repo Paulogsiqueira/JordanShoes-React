@@ -1,6 +1,6 @@
-import { handleInputChangeCell } from '../../../utils/form';
-import { AddressContext } from '../../../context/AddressContext';
-import { OrderDetailsContext } from '../../../context/OrderDetailsContext';
+import { handleInputChangeCell } from '@/utils/form';
+import { AddressContext } from '@/context/AddressContext';
+import { OrderDetailsContext } from '@/context/OrderDetailsContext';
 import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import './AddressDetails.css'

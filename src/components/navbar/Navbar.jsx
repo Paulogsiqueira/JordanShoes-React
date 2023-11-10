@@ -1,9 +1,9 @@
 import { NavLink, Link } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
-import { LoginContext } from '../../context/LoginContext'
-import { CartContext } from '../../context/CartContext';
-import logo from '../../img/logo/shoes.png';
-import cartIcon from '../../img/icon/cart.png';
+import { LoginContext } from '@/context/LoginContext'
+import { CartContext } from '@/context/CartContext';
+import logo from '@/img/logo/shoes.png';
+import cartIcon from '@/img/icon/cart.png';
 import './Navbar.css'
 
 const NavBar = () => {
@@ -17,8 +17,8 @@ const NavBar = () => {
     }
 
     useEffect(() => {
-        const totalPrice = 0;
-        const qtd = 0;
+        let totalPrice = 0;
+        let qtd = 0;
         for (let i = 0; i < cart.length; i++) {
             totalPrice += cart[i].price * cart[i].quantity;
             qtd += cart[i].quantity

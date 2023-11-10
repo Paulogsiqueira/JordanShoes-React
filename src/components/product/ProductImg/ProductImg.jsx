@@ -1,7 +1,7 @@
-import { products } from '../../../data/products.jsx';
+import { products } from '@/data/products.jsx';
 import { useEffect, useState } from 'react';
-import fallBackImage from '../../../img/icon/no-image.png'
-import teste from '../../../img/icon/teste.png';
+import fallBackImage from '@/img/icon/no-image.png'
+import teste from '@/img/icon/teste.png';
 import './ProductImg.css'
 
 const ProductImg = (props) => {

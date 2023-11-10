@@ -1,10 +1,10 @@
-import { handleInputChangeCep } from '../../../utils/form';
-import { AddressContext } from '../../../context/AddressContext';
+import { handleInputChangeCep } from '@/utils/form';
+import { AddressContext } from '@/context/AddressContext';
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react'
 import Modal from 'react-modal';
-import close from '../../../img/icon/close.png';
-import error from '../../../img/icon/error.png';
+import close from '@/img/icon/close.png';
+import error from '@/img/icon/error.png';
 import './FindCep.css'
 
 

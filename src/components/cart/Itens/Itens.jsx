@@ -1,8 +1,8 @@
-import { CartContext } from '../../../context/CartContext';
+import { CartContext } from '@/context/CartContext';
 import { useState, useContext, useEffect } from 'react'
-import { calcPrice } from '../../../utils/price';
-import fallBackImage from '../../../img/icon/no-image.png'
-import bin from '../../../img/icon/bin.png'
+import { calcPrice } from '@/utils/price';
+import fallBackImage from '@/img/icon/no-image.png'
+import bin from '@/img/icon/bin.png'
 import './Itens.css'
 
 const Itens = () => {

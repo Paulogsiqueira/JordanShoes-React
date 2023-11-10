@@ -1,13 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Modal from 'react-modal';
-import close from '../../img/icon/close.png';
-import error from '../../img/icon/error.png';
-import cartIcon from '../../img/icon/cart.png';
-import complete from '../../img/icon/complete.png';
-import leftArrow from '../../img/icon/left-arrow.png';
-import ProductDetails from '../../components/product/ProductDetails/ProductDetails';
-import ProductImg from '../../components/product/ProductImg/ProductImg.jsx';
+import close from '@/img/icon/close.png';
+import error from '@/img/icon/error.png';
+import cartIcon from '@/img/icon/cart.png';
+import complete from '@/img/icon/complete.png';
+import leftArrow from '@/img/icon/left-arrow.png';
+import ProductDetails from '@/components/product/ProductDetails/ProductDetails';
+import ProductImg from '@/components/product/ProductImg/ProductImg.jsx';
 import './Product.css'
 
 Modal.setAppElement("#root")

@@ -1,12 +1,12 @@
-import { CartContext } from '../../context/CartContext';
-import { FreightContext } from '../../context/FreightContext';
+import { CartContext } from '@/context/CartContext';
+import { FreightContext } from '@/context/FreightContext';
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from 'react-modal';
-import Resume from '../../components/payment/Resume/Resume';
-import Freight from '../../components/cart/Freight/Freight';
-import Itens from '../../components/cart/Itens/Itens';
-import close from '../../img/icon/close.png';
+import Resume from '@/components/payment/Resume/Resume';
+import Freight from '@/components/cart/Freight/Freight';
+import Itens from '@/components/cart/Itens/Itens';
+import close from '@/img/icon/close.png';
 import './Cart.css'
 
 const Cart = () => {

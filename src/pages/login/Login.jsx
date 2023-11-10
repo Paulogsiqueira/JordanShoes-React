@@ -1,5 +1,5 @@
 import { useState,useContext } from 'react'
-import { LoginContext } from '../../context/LoginContext'
+import { LoginContext } from '@/context/LoginContext'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 

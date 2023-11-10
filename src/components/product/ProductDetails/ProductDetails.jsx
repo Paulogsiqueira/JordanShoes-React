@@ -1,9 +1,9 @@
-import { CartContext } from '../../../context/CartContext';
-import { LoginContext } from '../../../context/LoginContext'
-import { products } from '../../../data/products.jsx';
+import { CartContext } from '@/context/CartContext';
+import { LoginContext } from '@/context/LoginContext'
+import { products } from '@/data/products.jsx';
 import { useContext, useEffect, useState } from 'react'
-import money from '../../../img/icon/money.png';
-import card from '../../../img/icon/card.png';
+import money from '@/img/icon/money.png';
+import card from '@/img/icon/card.png';
 import './ProductDetails.css'
 
 const ProductDetails = (props) => {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import payment from '../../img/icon/payment.png'
+import payment from '@/img/icon/payment.png'
 import CreditCard from './CreditCard/CreditCard';
-import Pix from '../../components/payment/Pix/Pix';
+import Pix from '@/components/payment/Pix/Pix';
 import './Payment.css'
 
 const Payment = () => {

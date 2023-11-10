@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { products } from '../../../data/products.jsx'
+import { products } from '@/data/products.jsx'
 import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import './CardsList.css'

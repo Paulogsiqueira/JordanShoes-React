@@ -1,4 +1,4 @@
-import fallBackImage from '../../../img/icon/no-image.png'
+import fallBackImage from '@/img/icon/no-image.png'
 import './Card.css'
 
 const Card = ({ product }) => {

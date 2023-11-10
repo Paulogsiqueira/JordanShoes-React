@@ -1,5 +1,5 @@
-import linkedin from '../../img/icon/linkedin.png'
-import github from '../../img/icon/github.png'
+import linkedin from '@/img/icon/linkedin.png'
+import github from '@/img/icon/github.png'
 import './Footer.css'
 
 

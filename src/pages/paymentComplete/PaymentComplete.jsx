@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import complete from '../../img/icon/complete.png';
+import complete from '@/img/icon/complete.png';
 import './PaymentComplete.css'
 
 const PaymentComplete = () => {

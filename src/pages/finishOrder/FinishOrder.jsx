@@ -1,6 +1,6 @@
-import Delivery from "../../components/delivery/Delivery"
-import Payment from "../../components/payment/Payment"
-import Resume from "../../components/payment/Resume/Resume"
+import Delivery from "@/components/delivery/Delivery"
+import Payment from "@/components/payment/Payment"
+import Resume from "@/components/payment/Resume/Resume"
 import './FinishOrder.css'
 
 const finishOrder = () => {
