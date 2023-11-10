@@ -4,7 +4,10 @@ import {resolve} from 'path'
 
 export default defineConfig({
  resolve:{
-  alias:[{find:'@', replacement: resolve(__dirname,'src')}]
+  alias:[
+    {find:'@', replacement: resolve(__dirname,'src')},
+    {find:'~', replacement: resolve(__dirname,'nikeShoes')}
+  ]
   },	
   plugins: [react()],
 })
