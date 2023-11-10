@@ -1,46 +1,61 @@
-.products-list{
+.products-list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-right: 3%;
 }
 
-.products-list li{
+.start {
+    justify-content: start;
+}
+
+.products-list li {
     width: 22%;
 }
 
 .link-no-decoration {
     text-decoration: none;
 }
-.link-no-decoration:visited{
+
+.link-no-decoration:visited {
     color: #474747;
 }
 
-.filter-products{
-    width: 100%;
+.filter-products {
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    background-color: #e9e8e8;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.filter-text{
+.filter-text {
     margin-left: 20px;
     margin-right: 20px;
     width: 50%;
-    height: 20px;
+    height: 30px;
     padding: 5px 10px;
     font-family: 'Roboto Slab', sans-serif;
-    color:#474747;
-    border:none;
+    color: #474747;
+    border: none;
     border-bottom: 1px solid #47474788;
-
+    border-radius: 5px;
 }
-.filter-label{
-    width: 10%;
+.filter-text:focus{
+    background-color: #f4f3f3;
+}
+
+.filter-label {
+    width: 20%;
     height: 30px;
     font-size: 16px;
     font-family: 'Roboto Slab', sans-serif;
     justify-content: end;
-    color:#474747
-    
+    font-weight: 500;
+    color: #474747
 }

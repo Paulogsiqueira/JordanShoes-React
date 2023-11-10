@@ -44,7 +44,7 @@ const ProductImg = (props) => {
                 </ul>
             </div>
             <div className='main-img'>
-                <img className="product-img__main" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} draggable={false} src={showImg} alt="Imagem do modelo selecionado" />
+                <img className="product-img__main" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} draggable={false} src={showImg} alt="Imagem do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }} />
                 <div className='magnify' style={magnifyStyle}></div>
             </div>
         </div>

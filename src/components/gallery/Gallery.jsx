@@ -11,16 +11,14 @@ const Gallery = () => {
         setPage(value)
     }
 
-    const changeCount  = (value) => {
+    const changeCount = (value) => {
         setCount(value)
     }
 
     return (
         <div className='products'>
-            <div className='gallery'>
-                <CardsList page={page} changeCount={changeCount} />
-                <Pagination count={count} variant="outlined" color="primary" className='pagination' onChange={(e,value) => handlePagination(value)} />
-            </div>
+            <CardsList page={page} changeCount={changeCount} />
+            <Pagination count={count} variant="outlined" color="primary" className='pagination' onChange={(e, value) => handlePagination(value)} />
         </div>
     )
 }

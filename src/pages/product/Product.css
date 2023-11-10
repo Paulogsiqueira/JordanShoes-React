@@ -1,7 +1,8 @@
 .product {
     display: flex;
-    margin-top: 70px;
-    margin-bottom: 100px;
+    margin-top: 5%;
+    margin-bottom: 15%;
+    height: 70vh;
 }
 
 /* Modal */

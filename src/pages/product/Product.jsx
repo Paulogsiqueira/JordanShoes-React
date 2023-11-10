@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Modal from 'react-modal';
 import close from '@/img/icon/close.png';
 import error from '@/img/icon/error.png';
+import attention from '@/img/icon/attention.png';
 import cartIcon from '@/img/icon/cart.png';
 import complete from '@/img/icon/complete.png';
 import leftArrow from '@/img/icon/left-arrow.png';
@@ -59,10 +60,10 @@ const Product = () => {
         className='modal-content'>
         <div className='modal'>
           <div className='modal-close'>
-            <button onClick={closeModal}><img src={close} /></button>
+            <button onClick={closeModal}><img src={error} /></button>
           </div>
           <div className='modalError-title'>
-            <img src={error} />
+            <img src={attention} />
             <p>Para adicionar itens ao carrinho voce precisa entrar na sua conta primeiro</p>
           </div>
           <div className='modal-btn'>

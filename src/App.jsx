@@ -13,8 +13,6 @@ import Cart from './pages/cart/Cart'
 import PaymentComplete from './pages/paymentComplete/PaymentComplete'
 import './App.css'
 
-
-
 function App() {
   const {login, setLogin} = useContext(LoginContext)
   const { cart, setCart } = useContext(CartContext)
