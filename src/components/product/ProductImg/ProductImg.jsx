@@ -38,7 +38,8 @@ const ProductImg = (props) => {
                     </li>
                     {products[id].othersImg.map((image, index) => (
                         <li key={index}>
-                            <img src={image} draggable={false} onClick={() => setMainImg(image)} alt="Posições diferentes do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
+                            ({image})
+                            <img src={image} draggable={false} onClick={() => setMainImg(image)} alt="Posições diferentes do modelo selecionado" />
                         </li>
                     ))}
                 </ul>
