@@ -26,6 +26,7 @@ export const CardsList = ({ page, changeCount }) => {
     const showProductsPage = (productFiltered) => {
         if (page == 1) {
             setProductsFiltered(productFiltered.slice(0, 8))
+            console.log("oi")
         } else {
             const init = Math.ceil(productFiltered.length / 8) - 1 * 8
             const end = init + 8;
