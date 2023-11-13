@@ -1,18 +1,11 @@
 import { CartContext } from '@/context/CartContext';
-import { useState, useContext, useEffect } from 'react'
-import { calcPrice } from '@/utils/price';
+import { useContext} from 'react'
 import fallBackImage from '@/img/icon/no-image.png'
 import bin from '@/img/icon/bin.png'
 import './Itens.css'
 
 const Itens = () => {
     const { cart, setCart } = useContext(CartContext)
-    const [total, setTotal] = useState(0);
-
-    useEffect(() => {
-         const totalPrice = calcPrice(cart);
-        setTotal(totalPrice)
-    }, [cart])
 
     const addQuantity = (index) => {
         const updatedCart = [...cart]

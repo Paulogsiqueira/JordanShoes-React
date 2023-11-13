@@ -1,7 +1,8 @@
 import { NavLink, Link } from 'react-router-dom'
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { LoginContext } from '@/context/LoginContext'
 import { CartContext } from '@/context/CartContext';
+import { calcPrice } from '../../utils/price';
 import logo from '@/img/logo/shoes.png';
 import cartIcon from '@/img/icon/cart.png';
 import './Navbar.css'
@@ -9,24 +10,12 @@ import './Navbar.css'
 const NavBar = () => {
 
     const { login, setLogin } = useContext(LoginContext)
-    const { cart, setCart } = useContext(CartContext)
-    const [total, setTotal] = useState(0);
-    const [quantity, setQuantity] = useState(0);
+    const { cart } = useContext(CartContext)
     const endSession = () => {
         setLogin("")
     }
-
-    useEffect(() => {
-        let totalPrice = 0;
-        let qtd = 0;
-        for (let i = 0; i < cart.length; i++) {
-            totalPrice += cart[i].price * cart[i].quantity;
-            qtd += cart[i].quantity
-        }
-        setQuantity(qtd)
-        setTotal(totalPrice)
-    }, [cart])
-
+    const { totalPrice, qtd } = calcPrice(cart);
+    
     return (
         <nav className='navbar'>
             <div className='navbar-logo'>
@@ -48,8 +37,8 @@ const NavBar = () => {
                             <NavLink to='/cart' className='navbar-cart'>
                                 <div className='cart'>
                                     <img src={cartIcon} alt="Ícone carrinho de compras" />
-                                    <p>{cart == undefined ? 0 : quantity} Itens</p>
-                                    <p>R$ {cart == undefined ? Number(0).toFixed(2) : total.toFixed(2)}</p>
+                                    <p>{cart == undefined ? 0 : qtd} Itens</p>
+                                    <p>R$ {cart == undefined ? Number(0).toFixed(2) : totalPrice.toFixed(2)}</p>
                                 </div>
                             </NavLink>
                         </li>

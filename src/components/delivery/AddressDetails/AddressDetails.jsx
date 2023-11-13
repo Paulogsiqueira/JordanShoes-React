@@ -1,17 +1,15 @@
 import { handleInputChangeCell } from '@/utils/form';
 import { AddressContext } from '@/context/AddressContext';
-import { OrderDetailsContext } from '@/context/OrderDetailsContext';
 import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import './AddressDetails.css'
 
-const AddressDetails = () => {
+const AddressDetails = ({setCompleteAddress}) => {
     const { address, setAddress } = useContext(AddressContext)
-    const { orderDetails, setOrderDetails } = useContext(OrderDetailsContext)
     const { register, handleSubmit, formState: { errors },setValue } = useForm()
 
-    const onSubmit = (data) => {
-        setOrderDetails(true)
+    const onSubmit = () => {
+        setCompleteAddress(true)
     }
 
     useEffect(() => {

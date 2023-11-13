@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { products } from '@/data/products.jsx'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Card from '../Card/Card'
 import './CardsList.css'
 
@@ -17,14 +17,6 @@ export const CardsList = ({ page, changeCount }) => {
             setProductsPage(products.slice(productIni, productFin));
         }
     }
-
-    useEffect(() => {
-        selectProductsPage()
-    }, [page])
-
-    useEffect(() => {
-
-    }, [productsPage])
 
     const handleFilter = () => {
         if (filter != "") {

@@ -10,8 +10,8 @@ import close from '@/img/icon/close.png';
 import './Cart.css'
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext)
-  const { freight, setFreight } = useContext(FreightContext)
+  const { cart} = useContext(CartContext)
+  const { freight } = useContext(FreightContext)
   const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
 
   const navigate = useNavigate()

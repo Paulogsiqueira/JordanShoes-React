@@ -1,14 +1,13 @@
-import { useState,useContext } from 'react'
+import { useState,useContext, useRef } from 'react'
 import { LoginContext } from '@/context/LoginContext'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 
 const Login = () => {
-
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const email = useRef('')
+  const password = useRef('')
   const [error, setError] = useState("")
-  const {login, setLogin} = useContext(LoginContext)
+  const {setLogin} = useContext(LoginContext)
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -21,12 +20,12 @@ const Login = () => {
     const emailUser = userInfo[0];
     const passwordUser = userInfo[1];
 
-    if (email != emailUser) {
+    if (email.current.value != emailUser) {
       setError("Email não cadastrado")
       return
     }
 
-    if (password != passwordUser) {
+    if (password.current.value != passwordUser) {
       setError("Senha inválida")
       return
     }
@@ -44,11 +43,11 @@ const Login = () => {
       <form onSubmit={handleSubmit} >
         <label>
           <span>E-mail:</span>
-          <input type="text" name="email" required placeholder='E-mail do usuário' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="text" name="email" required placeholder='E-mail do usuário' ref={email}/>
         </label>
         <label>
           <span>Senha:</span>
-          <input type="password" name="password" required placeholder='Insira sua senha' value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" name="password" required placeholder='Insira sua senha' ref={password}/>
         </label>
         {error && <p className='erro'>{error}</p>}
         <button className='btn'>Entrar</button>

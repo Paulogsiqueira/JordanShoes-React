@@ -1,7 +1,6 @@
 import { FreightContext } from '@/context/FreightContext';
 import { CartContext } from '@/context/CartContext';
-import { OrderDetailsContext } from '@/context/OrderDetailsContext';
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { calcPrice } from '@/utils/price';
 import Modal from 'react-modal';
@@ -13,20 +12,14 @@ import './Pix.css'
 const Pix = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
-    const { orderDetails, setOrderDetails } = useContext(OrderDetailsContext)
     const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
-    const [total, setTotal] = useState(0);
     const navigate = useNavigate()
+    const { totalPrice } = calcPrice(cart);
 
-    useEffect(() => {
-        const totalPrice = calcPrice(cart);
-        setTotal(totalPrice)
-    }, [cart]);
 
     const handlePayment = () => {
         setCart([])
         setFreight(0)
-        setOrderDetails(false)
         openModalError()
     }
 
@@ -47,7 +40,7 @@ const Pix = () => {
                     <img src={pix} alt="Código pix" />
                 </div>
                 <div>
-                    <h2>Valor: R${((total + freight) * 0.9).toFixed(2)}</h2>
+                    <h2>Valor: R${((totalPrice + freight) * 0.9).toFixed(2)}</h2>
                 </div>
                 <div className='pix-data'>
                     <h3>Dados para PIX manual</h3>

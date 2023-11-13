@@ -4,9 +4,8 @@ import fallBackImage from '@/img/icon/no-image.png'
 import teste from '@/img/icon/teste.png';
 import './ProductImg.css'
 
-const ProductImg = (props) => {
-    const id = props.item;
-    const [mainImg, setMainImg] = useState(products[id].img)
+const ProductImg = ({item}) => {
+    const [mainImg, setMainImg] = useState(products[item].img)
     const [magnifyStyle, setMagnifyStyle] = useState({ backgroundImage: `url('${mainImg}')` })
     const [showImg, setShowImg] = useState(mainImg)
 
@@ -34,9 +33,9 @@ const ProductImg = (props) => {
             <div className='product-gallery'>
                 <ul>
                     <li>
-                        <img draggable={false} src={products[id].img} onClick={() => setMainImg(products[id].img)} alt="Imagem do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
+                        <img draggable={false} src={products[item].img} onClick={() => setMainImg(products[item].img)} alt="Imagem do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
                     </li>
-                    {products[id].othersImg.map((image, index) => (
+                    {products[item].othersImg.map((image, index) => (
                         <li key={index}>
                             <img src={image} draggable={false} onClick={() => setMainImg(image)} alt="Posições diferentes do modelo selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }}/>
                         </li>

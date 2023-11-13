@@ -10,8 +10,8 @@ import './FindCep.css'
 
 const FindCep = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const { address, setAddress } = useContext(AddressContext)
-    const { cepError, setCepError } = useState("")
+    const { setAddress } = useContext(AddressContext)
+    const { cepError } = useState("")
     const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
 
     const onSubmit = (data) => {

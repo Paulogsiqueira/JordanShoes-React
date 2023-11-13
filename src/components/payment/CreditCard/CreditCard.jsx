@@ -1,8 +1,7 @@
 import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../utils/form';
 import { FreightContext } from '@/context/FreightContext';
 import { CartContext } from '@/context/CartContext';
-import { OrderDetailsContext } from '@/context/OrderDetailsContext';
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext} from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { calcPrice } from '@/utils/price';
@@ -13,22 +12,15 @@ import './CreditCard.css'
 const CreditCard = () => {
     const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
-    const { orderDetails, setOrderDetails } = useContext(OrderDetailsContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const [total, setTotal] = useState(0);
     const [flag, setFlag] = useState("")
     const navigate = useNavigate()
+    const { totalPrice } = calcPrice(cart);
 
-
-    useEffect(() => {
-        const totalPrice = calcPrice(cart);
-        setTotal(totalPrice)
-    }, []);
 
     const onSubmit = () => {
         setCart([])
         setFreight(0)
-        setOrderDetails(false)
         navigate('/paymentComplete')
     }
 
@@ -114,16 +106,16 @@ const CreditCard = () => {
                     <div className='creditcard-input'>
                         <p>Parcela</p>
                         <select>
-                            <option>1x de R${((total + freight)).toFixed(2)} (sem juros)</option>
-                            <option>2x de R${((total + freight) / 2).toFixed(2)} (sem juros)</option>
-                            <option>3x de R${((total + freight) / 3).toFixed(2)} (sem juros)</option>
-                            <option>4x de R${((total + freight) / 4).toFixed(2)} (sem juros)</option>
-                            <option>5x de R${((total + freight) / 5).toFixed(2)} (sem juros)</option>
-                            <option>6x de R${((total + freight) / 6).toFixed(2)} (sem juros)</option>
-                            <option>7x de R${((total + freight) / 7 * 1.04).toFixed(2)} (4% de juros)</option>
-                            <option>8x de R${((total + freight) / 8 * 1.08).toFixed(2)} (8% de juros)</option>
-                            <option>9x de R${((total + freight) / 9 * 1.12).toFixed(2)} (12% de juros)</option>
-                            <option>10x de R${((total + freight) / 10 * 1.16).toFixed(2)} (16% de juros)</option>
+                            <option>1x de R${((totalPrice + freight)).toFixed(2)} (sem juros)</option>
+                            <option>2x de R${((totalPrice + freight) / 2).toFixed(2)} (sem juros)</option>
+                            <option>3x de R${((totalPrice + freight) / 3).toFixed(2)} (sem juros)</option>
+                            <option>4x de R${((totalPrice + freight) / 4).toFixed(2)} (sem juros)</option>
+                            <option>5x de R${((totalPrice + freight) / 5).toFixed(2)} (sem juros)</option>
+                            <option>6x de R${((totalPrice + freight) / 6).toFixed(2)} (sem juros)</option>
+                            <option>7x de R${((totalPrice + freight) / 7 * 1.04).toFixed(2)} (4% de juros)</option>
+                            <option>8x de R${((totalPrice + freight) / 8 * 1.08).toFixed(2)} (8% de juros)</option>
+                            <option>9x de R${((totalPrice + freight) / 9 * 1.12).toFixed(2)} (12% de juros)</option>
+                            <option>10x de R${((totalPrice + freight) / 10 * 1.16).toFixed(2)} (16% de juros)</option>
                         </select>
                     </div>
                     <div className='credicard-error'>
