@@ -17,7 +17,7 @@ const Gallery = () => {
 
     return (
         <div className='products'>
-            <CardsList page={page} changeCount={changeCount} />
+            <CardsList page={page} changeCount={changeCount} count={count} setPage={setPage}/>
             <Pagination count={count} variant="outlined" color="primary" className='pagination' onChange={(e, value) => handlePagination(value)} />
         </div>
     )

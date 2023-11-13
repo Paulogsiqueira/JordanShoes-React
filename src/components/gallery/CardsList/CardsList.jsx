@@ -1,36 +1,37 @@
 import { Link } from 'react-router-dom'
 import { products } from '@/data/products.jsx'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Card from '../Card/Card'
 import './CardsList.css'
 
 export const CardsList = ({ page, changeCount }) => {
-    const [filter, setFilter] = useState('')
-    const [productsPage, setProductsPage] = useState([])
+    const filter = useRef('')
+    const [productsPage, setProductsPage] = useState(products)
+    const [productsFiltered, setProductsFiltered] = useState()
 
-    const selectProductsPage = () => {
-        if (page == 1) {
-            setProductsPage(products.slice(0, 8))
+    changeCount(Math.ceil(productsPage.length / 8))
+
+    const handleFilter = () => {
+        if (filter.current.value != "") {
+            const filterValue = filter.current.value
+            const filteredProducts = products.filter((product) => product.name.includes(filterValue));
+            console.log("Filtro preenchido")
+            showProductsPage(filteredProducts)
         } else {
-            const productIni = 8 * (page - 1);
-            const productFin = productIni + 8;
-            setProductsPage(products.slice(productIni, productFin));
+            showProductsPage(products)
+            console.log("Filtro vazio")
         }
     }
 
-    const handleFilter = () => {
-        if (filter != "") {
-            const filteredProducts = products.filter((produto) => produto.name.includes(filter));
-            setProductsPage(filteredProducts)
-            if (filteredProducts.length > 8) {
-                changeCount(2)
-            } else {
-                changeCount(1)
-            }
+    const showProductsPage = (productFiltered) => {
+        if (page == 1) {
+            setProductsFiltered(productFiltered.slice(0, 8))
         } else {
-            selectProductsPage()
-            changeCount(2)
+            const init = Math.ceil(productFiltered.length / 8) - 1 * 8
+            const end = init + 8;
+            setProductsFiltered(productFiltered.slice(init, end))
         }
+
     }
 
     return (
@@ -39,20 +40,38 @@ export const CardsList = ({ page, changeCount }) => {
                 <label className='filter-label'>
                     Nome do produto
                 </label>
-                <input type="text" className='filter-text' placeholder='Digite o nome do produto que esta buscando' value={filter} onChange={(e) => (setFilter(e.target.value))} />
+                <input type="text" className='filter-text' placeholder='Digite o nome do produto que esta buscando' ref={filter} />
                 <button className='btn' onClick={handleFilter}>Buscar</button>
             </div>
             <ul className={`products-list ${productsPage.length > 3 ? '' : 'start'}`}>
-                {productsPage.map((product, index) => {
-                    const adjustedIndex = page === 1 ? index : index + (8 * (page - 1));
-                    return (
-                        <li key={index}>
-                            <Link to={`/product/${adjustedIndex}`} className="link-no-decoration">
-                                <Card product={product} />
-                            </Link>
-                        </li>
-                    );
-                })}
+
+                {
+                    filter.current.value != "" && filter.current.value != undefined ? (
+                        productsFiltered.map((product, index) => {
+                            const adjustedIndex = page === 1 ? index : index + (8 * (page - 1));
+                            return (
+                                <li key={index}>
+                                    <Link to={`/product/${adjustedIndex}`} className="link-no-decoration">
+                                        <Card product={product} />
+                                    </Link>
+                                </li>
+                            );
+                        })
+                    ) : (
+                        productsPage.map((product, index) => {
+                            const adjustedIndex = page === 1 ? index : index + (8 * (page - 1));
+                            return (
+                                <li key={index}>
+                                    <Link to={`/product/${adjustedIndex}`} className="link-no-decoration">
+                                        <Card product={product} />
+                                    </Link>
+                                </li>
+                            );
+                        })
+                    )
+                }
+
+
             </ul>
         </div>
     )

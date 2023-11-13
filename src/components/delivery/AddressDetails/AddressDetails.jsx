@@ -1,31 +1,36 @@
 import { handleInputChangeCell } from '@/utils/form';
 import { AddressContext } from '@/context/AddressContext';
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import './AddressDetails.css'
 
 const AddressDetails = ({setCompleteAddress}) => {
-    const { address, setAddress } = useContext(AddressContext)
-    const { register, handleSubmit, formState: { errors },setValue } = useForm()
+    const { address } = useContext(AddressContext)
+    const { register, handleSubmit, formState: { errors },setValue } = useForm({
+        defaultValues: { 
+            street:"",
+            city:"",
+            state:"",
+            district:"",
+        },
+        values: getValues()
+    })
+
+    function getValues() {
+        return({
+            street: address.logradouro,
+            city:address.localidade,
+            state: address.uf,
+            district: address.bairro
+            
+        })
+    }
 
     const onSubmit = () => {
         setCompleteAddress(true)
+        getValues
     }
 
-    useEffect(() => {
-        if (address.logradouro) {
-            setValue('street', address.logradouro)
-        }
-        if (address.localidade) {
-            setValue('city',address.localidade);
-        }
-        if (address.uf) {
-            setValue('state',address.uf);
-        }
-        if (address.bairro) {
-            setValue('district',address.bairro);
-        }
-    }, [address])
 
     return (
         <div>
