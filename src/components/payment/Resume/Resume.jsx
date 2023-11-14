@@ -1,14 +1,14 @@
-import { FreightContext } from '@/context/FreightContext';
 import { CartContext } from '@/context/CartContext';
+import { useSelector } from 'react-redux'
 import { useContext} from 'react'
 import { calcPrice } from '@/utils/price';
 import './Resume.css'
 
 const Resume = () => {
-    const { freight } = useContext(FreightContext)
     const { cart} = useContext(CartContext)
-
     const { totalPrice } = calcPrice(cart);
+    const user = useSelector(state => state.user)
+    let freight = user.freight.payload
 
     return (
         <div>

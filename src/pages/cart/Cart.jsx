@@ -1,5 +1,5 @@
 import { CartContext } from '@/context/CartContext';
-import { FreightContext } from '@/context/FreightContext';
+import { useSelector } from 'react-redux'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from 'react-modal';
@@ -11,8 +11,9 @@ import './Cart.css'
 
 const Cart = () => {
   const { cart} = useContext(CartContext)
-  const { freight } = useContext(FreightContext)
   const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
+  const user = useSelector(state => state.user)
+  let freight = user.freight.payload
 
   const navigate = useNavigate()
 

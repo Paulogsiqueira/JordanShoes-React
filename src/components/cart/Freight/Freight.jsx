@@ -1,15 +1,18 @@
-import { FreightContext } from '@/context/FreightContext';
-import { useContext } from 'react'
+import { calcFreight } from '@/redux/useSlicer'
+import { useDispatch } from 'react-redux'
 import { handleInputChangeCep } from '@/utils/form';
+import { useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form';
 import './Freight.css'
 
 const Freight = () => {
-    const { freight, setFreight } = useContext(FreightContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const user = useSelector(state => state.user)
+    let freight = user.freight.payload
+    const dispatch = useDispatch()
 
     const onSubmit = () => {
-       setFreight(Math.random() * 15 + 15)
+        dispatch(calcFreight((Math.random() * 15 + 15).toFixed(2)))
     }
 
     return (
@@ -19,8 +22,8 @@ const Freight = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label>
                         CEP
-                        <input type='text' {...register("cep", { required: true, minLength: 8,maxLength:9, onChange:handleInputChangeCep })} />
-                        {freight >14 && <p className='freight-value'>Valor do frete: R$ {(freight).toFixed(2)}</p>}
+                        <input type='text' {...register("cep", { required: true, minLength: 8, maxLength: 9, onChange: handleInputChangeCep })} />
+                        {freight > 14 && <p className='freight-value'>Valor do frete: R$ {freight}</p>}
                         <div className='form-error'>
                             {errors?.cep?.type == 'required' && <p >Campo obrigatório</p>}
                             {errors?.cep?.type == 'minLength' && <p >CEP inválido</p>}

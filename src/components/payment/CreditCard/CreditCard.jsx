@@ -1,5 +1,6 @@
 import { handleInputChange, handleInputChangeCpf, handleInputChangeNumber, handleInputChangeValidity, validarCPF, validarCartao } from '../../../utils/form';
-import { FreightContext } from '@/context/FreightContext';
+import { resetFreight } from '@/redux/useSlicer'
+import { useDispatch,useSelector } from 'react-redux'
 import { CartContext } from '@/context/CartContext';
 import { useState, useContext} from 'react'
 import { useForm } from 'react-hook-form';
@@ -10,17 +11,19 @@ import './CreditCard.css'
 
 
 const CreditCard = () => {
-    const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
+    const { totalPrice } = calcPrice(cart);
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [flag, setFlag] = useState("")
     const navigate = useNavigate()
-    const { totalPrice } = calcPrice(cart);
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+    let freight = user.freight.payload
 
 
     const onSubmit = () => {
         setCart([])
-        setFreight(0)
+        dispatch(resetFreight())
         navigate('/paymentComplete')
     }
 

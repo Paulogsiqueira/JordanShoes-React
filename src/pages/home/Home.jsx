@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Home = () => {
   const user = useSelector(state => state.user)
 
-  console.log(user.isLogged)
+  console.log(user.freight.payload)
   return (
     <div className='home'>
 

@@ -1,4 +1,5 @@
-import { FreightContext } from '@/context/FreightContext';
+import { resetFreight } from '@/redux/useSlicer'
+import { useDispatch } from 'react-redux'
 import { CartContext } from '@/context/CartContext';
 import { useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -10,16 +11,18 @@ import pix from '@/img/payment/pix.png'
 import './Pix.css'
 
 const Pix = () => {
-    const { freight, setFreight } = useContext(FreightContext)
     const { cart, setCart } = useContext(CartContext)
     const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
-    const navigate = useNavigate()
     const { totalPrice } = calcPrice(cart);
+    const user = useSelector(state => state.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    let freight = user.freight.payload
 
 
     const handlePayment = () => {
         setCart([])
-        setFreight(0)
+        dispatch(resetFreight())
         openModalError()
     }
 
