@@ -1,17 +1,18 @@
 import { CartContext } from '@/context/CartContext';
-import { LoginContext } from '@/context/LoginContext'
 import { products } from '@/data/products.jsx';
 import { useContext} from 'react'
+import { useSelector } from 'react-redux'
 import money from '@/img/icon/money.png';
 import card from '@/img/icon/card.png';
 import './ProductDetails.css'
 
 const ProductDetails = ({item,openModalFunc,openModalErrorFunc}) => {
     const { cart, setCart } = useContext(CartContext)
-    const { login} = useContext(LoginContext)
+    const user = useSelector(state => state.user)
+    const login = user.isLogged
 
     const handleClick = () => {
-        if (login == "true") {
+        if (login == true) {
           openModalFunc()
           let found = false;
           let pos;

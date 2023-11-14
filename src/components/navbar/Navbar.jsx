@@ -1,21 +1,28 @@
 import { NavLink, Link } from 'react-router-dom'
-import { useState, useContext } from 'react'
-import { LoginContext } from '@/context/LoginContext'
+import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { CartContext } from '@/context/CartContext';
 import { calcPrice } from '../../utils/price';
+import { logout } from '../../redux/useSlicer'
+import { useDispatch } from 'react-redux'
 import logo from '@/img/logo/shoes.png';
 import cartIcon from '@/img/icon/cart.png';
 import './Navbar.css'
 
 const NavBar = () => {
 
-    const { login, setLogin } = useContext(LoginContext)
     const { cart } = useContext(CartContext)
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
+    const login = (user.isLogged)
+
     const endSession = () => {
         setLogin("")
+        dispatch(logout())
+
     }
     const { totalPrice, qtd } = calcPrice(cart);
-    
+
     return (
         <nav className='navbar'>
             <div className='navbar-logo'>
@@ -32,7 +39,7 @@ const NavBar = () => {
                             Home
                         </NavLink>
                     </li>
-                    {login == 'true' &&
+                    {login == true &&
                         <li >
                             <NavLink to='/cart' className='navbar-cart'>
                                 <div className='cart'>
@@ -43,9 +50,9 @@ const NavBar = () => {
                             </NavLink>
                         </li>
                     }
-                    {login != 'true' && <li><NavLink className='navbar-link' to="/login">Entrar</NavLink></li>}
-                    {login != 'true' && <li><NavLink className='navbar-link' to="/register">Cadastrar</NavLink></li>}
-                    {login == 'true' && <li><Link className='navbar-link' to="/" onClick={endSession}>Sair</Link> </li>}
+                    {login != true && <li><NavLink className='navbar-link' to="/login">Entrar</NavLink></li>}
+                    {login != true && <li><NavLink className='navbar-link' to="/register">Cadastrar</NavLink></li>}
+                    {login == true && <li><Link className='navbar-link' to="/" onClick={endSession}>Sair</Link> </li>}
                 </ul>
             </div>
 

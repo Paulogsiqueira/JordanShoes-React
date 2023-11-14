@@ -1,20 +1,21 @@
-import { useState,useContext, useRef } from 'react'
-import { LoginContext } from '@/context/LoginContext'
+import { useState,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { login } from '../../redux/useSlicer'
+import { useDispatch } from 'react-redux'
 import './Login.css'
 
 const Login = () => {
   const email = useRef('')
   const password = useRef('')
   const [error, setError] = useState("")
-  const {setLogin} = useContext(LoginContext)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setError("")
-
+    
     const user = localStorage.getItem('usuario');
     const userInfo = user.split(",")
     const emailUser = userInfo[0];
@@ -30,7 +31,7 @@ const Login = () => {
       return
     }
 
-    setLogin('true')
+    dispatch(login())
     setTimeout(() => {
       navigate("/")
     }, 100);

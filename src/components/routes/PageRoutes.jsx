@@ -1,7 +1,7 @@
-import { LoginContext } from '@/context/LoginContext.jsx'
 import { CartContext } from '@/context/CartContext';
 import { useContext } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Home from '@/pages/home/Home'
 import Register from '@/pages/register/Register'
 import FinishOrder from '@/pages/finishOrder/FinishOrder'
@@ -12,8 +12,9 @@ import PaymentComplete from '@/pages/paymentComplete/PaymentComplete'
 
 
 const PageRoutes = () => {
-    const { login } = useContext(LoginContext)
     const { cart } = useContext(CartContext)
+    const user = useSelector(state => state.user)
+    const login = user.isLogged
 
     return (
         <Routes>
