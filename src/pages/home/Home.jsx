@@ -1,11 +1,7 @@
 import Gallery from '@/components/gallery/Gallery'
 import './Home.css'
-import { useSelector } from 'react-redux'
 
 const Home = () => {
-  const user = useSelector(state => state.user)
-
-  console.log(user.freight.payload)
   return (
     <div className='home'>
 

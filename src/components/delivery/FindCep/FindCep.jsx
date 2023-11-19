@@ -1,7 +1,8 @@
 import { handleInputChangeCep } from '@/utils/form';
-import { AddressContext } from '@/context/AddressContext';
 import { useForm } from 'react-hook-form';
-import { useContext, useState } from 'react'
+import { setAddress } from '@/redux/useSlicer'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react';
 import Modal from 'react-modal';
 import close from '@/img/icon/close.png';
 import error from '@/img/icon/error.png';
@@ -10,9 +11,9 @@ import './FindCep.css'
 
 const FindCep = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const { setAddress } = useContext(AddressContext)
     const { cepError } = useState("")
     const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
+    const dispatch = useDispatch()
 
     const onSubmit = (data) => {
         queryCEP(data.cepNumber)
@@ -36,7 +37,7 @@ const FindCep = () => {
                 if (data.erro) {
                     openModalError();
                 } else {
-                    setAddress(data)
+                    dispatch(setAddress(data))
                 }
             })
             .catch(error => {

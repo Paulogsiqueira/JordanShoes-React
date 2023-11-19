@@ -1,6 +1,6 @@
 import { useState,useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../../redux/useSlicer'
+import { login } from '@/redux/useSlicer'
 import { useDispatch } from 'react-redux'
 import './Login.css'
 

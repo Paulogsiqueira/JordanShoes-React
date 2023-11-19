@@ -8,7 +8,9 @@ const Resume = () => {
     const { cart} = useContext(CartContext)
     const { totalPrice } = calcPrice(cart);
     const user = useSelector(state => state.user)
-    let freight = user.freight.payload
+    let freight = user.freight.payload > 1 ? Number(user.freight.payload) : 0;
+
+    const finalPrice = (freight + totalPrice).toFixed(2)
 
     return (
         <div>
@@ -19,23 +21,23 @@ const Resume = () => {
                         <p>Subtotal</p>
                         <p>R$ {totalPrice.toFixed(2)}</p>
                     </div>
-                    {freight != 0 && <div className='freight'>
+                    {freight > 2 && <div className='freight'>
                         <p>Frete</p>
-                        <p >R$ {(freight).toFixed(2)}</p>
+                        <p >R$ {freight}</p>
                     </div>
                     }
                     {freight != 0 && <div className='payment-total'>
                         <p>Total</p>
-                        <p className='payment-value'>R$ {(totalPrice + freight).toFixed(2)}</p>
+                        <p className='payment-value'>R$ {finalPrice}</p>
                     </div>}
                     <div className='payment-pix'>
                         <p className='pix-method'>à vista</p>
-                        <h2>R$ {((totalPrice + freight) * 0.9).toFixed(2)}</h2>
+                        <h2>R$ {((finalPrice) * 0.9).toFixed(2)}</h2>
                         <p className='pix-discount'>no PIX com 10% de desconto</p>
                     </div>
                     <div className='card-method'>
-                        <h2>R$ {(totalPrice + freight).toFixed(2)}</h2>
-                        <p>em até 6x de R$ {((totalPrice + freight) / 6).toFixed(2)} sem juros no cartão</p>
+                        <h2>R$ {finalPrice}</h2>
+                        <p>em até 6x de R$ {((finalPrice) / 6).toFixed(2)} sem juros no cartão</p>
                     </div>
                 </div>
             </div>

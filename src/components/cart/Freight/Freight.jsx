@@ -3,13 +3,22 @@ import { useDispatch } from 'react-redux'
 import { handleInputChangeCep } from '@/utils/form';
 import { useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form';
+import { resetFreight } from '../../../redux/useSlicer';
+import { useEffect } from 'react';
 import './Freight.css'
 
 const Freight = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const user = useSelector(state => state.user)
-    let freight = user.freight.payload
+    let freight = user.freight.payload > 1 ? user.freight.payload : 0;
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(resetFreight());
+    
+        return () => {
+        };
+      }, []);
 
     const onSubmit = () => {
         dispatch(calcFreight((Math.random() * 15 + 15).toFixed(2)))

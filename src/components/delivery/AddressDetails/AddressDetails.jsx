@@ -1,12 +1,14 @@
 import { handleInputChangeCell } from '@/utils/form';
-import { AddressContext } from '@/context/AddressContext';
-import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
 import './AddressDetails.css'
 
 const AddressDetails = ({setCompleteAddress}) => {
-    const { address, setAddress } = useContext(AddressContext)
     const { register, handleSubmit, formState: { errors },setValue } = useForm()
+    const user = useSelector(state => state.user)
+    const address = (user.address.payload)
+    console.log(user)
 
     const onSubmit = () => {
         setCompleteAddress(true)

@@ -2,8 +2,8 @@ import { NavLink, Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { CartContext } from '@/context/CartContext';
-import { calcPrice } from '../../utils/price';
-import { logout } from '../../redux/useSlicer'
+import { calcPrice } from '@/utils/price';
+import { logout } from '@/redux/useSlicer'
 import { useDispatch } from 'react-redux'
 import logo from '@/img/logo/shoes.png';
 import cartIcon from '@/img/icon/cart.png';
