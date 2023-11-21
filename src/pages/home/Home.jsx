@@ -1,7 +1,10 @@
 import Gallery from '@/components/gallery/Gallery'
+import { useSelector } from 'react-redux'
 import './Home.css'
 
 const Home = () => {
+
+  const user = useSelector(state => state.user)
   return (
     <div className='home'>
 

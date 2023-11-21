@@ -1,7 +1,6 @@
-import { CartContext } from '@/context/CartContext';
 import { useSelector } from 'react-redux'
-import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 import Modal from 'react-modal';
 import Resume from '@/components/payment/Resume/Resume';
 import Freight from '@/components/cart/Freight/Freight';
@@ -10,10 +9,10 @@ import close from '@/img/icon/close.png';
 import './Cart.css'
 
 const Cart = () => {
-  const { cart} = useContext(CartContext)
   const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
   const user = useSelector(state => state.user)
   let freight = user.freight.payload
+  const cart = user.cart
 
   const navigate = useNavigate()
 
@@ -24,11 +23,9 @@ const Cart = () => {
       openModalError()
     }
   }
-
   const openModalError = () => {
     setModalErrorIsOpen(true)
   }
-
   const closeModal = () => {
     setModalErrorIsOpen(false)
   }

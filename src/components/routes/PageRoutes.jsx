@@ -1,5 +1,3 @@
-import { CartContext } from '@/context/CartContext';
-import { useContext } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Home from '@/pages/home/Home'
@@ -12,9 +10,9 @@ import PaymentComplete from '@/pages/paymentComplete/PaymentComplete'
 
 
 const PageRoutes = () => {
-    const { cart } = useContext(CartContext)
     const user = useSelector(state => state.user)
     const login = user.isLogged
+    const cart = user.cart
 
     return (
         <Routes>

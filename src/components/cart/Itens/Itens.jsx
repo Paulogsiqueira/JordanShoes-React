@@ -1,34 +1,13 @@
-import { CartContext } from '@/context/CartContext';
-import { useContext} from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import { addCart,removeCart,deleteCart } from '@/redux/useSlicer'
 import fallBackImage from '@/img/icon/no-image.png'
 import bin from '@/img/icon/bin.png'
 import './Itens.css'
 
 const Itens = () => {
-    const { cart, setCart } = useContext(CartContext)
-
-    const addQuantity = (index) => {
-        const updatedCart = [...cart]
-        updatedCart[index].quantity += 1
-        setCart(updatedCart);
-    }
-
-    const decreaseQuantity = (index) => {
-        const updatedCart = [...cart]
-        if (updatedCart[index].quantity > 1) {
-            updatedCart[index].quantity -= 1
-            setCart(updatedCart);
-        } else {
-            updatedCart.splice(index, 1)
-            setCart(updatedCart);
-        }
-    }
-
-    const deleteItem = (index) => {
-        const updatedCart = [...cart]
-        updatedCart.splice(index, 1)
-        setCart(updatedCart);
-    }
+    const user = useSelector(state => state.user)
+    const cart = user.cart
+    const dispatch = useDispatch()
 
     return (
         <div className='cart-itens'>
@@ -37,11 +16,11 @@ const Itens = () => {
                     <li key={index} >
                         <div className='cart-item'>
                             <section className='item-img'>
-                                <img src={product.img} alt="Foto do tenis selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }} />
+                                <img src={product.payload.img} alt="Foto do tenis selecionado" onError={(e) => { e.target.onerror = null; e.target.src=fallBackImage; }} />
                             </section>
                             <section className='item-desc'>
-                                <h3>{product.name}</h3>
-                                <p>{product.description}</p>
+                                <h3>{product.payload.name}</h3>
+                                <p>{product.payload.description}</p>
                                 <p><strong>Marca: </strong>Nike</p>
                             </section>
                             <section className='item-options'>
@@ -50,9 +29,9 @@ const Itens = () => {
                                         Qtd
                                     </div>
                                     <div className='item-options__btn'>
-                                        <p className='btn-quantity' onClick={() => (decreaseQuantity(index))}>-</p>
+                                        <p className='btn-quantity' onClick={() => (dispatch(removeCart(product.payload)))}>-</p>
                                         <p className='item-quantity'>{product.quantity}</p>
-                                        <p className='btn-quantity' onClick={() => (addQuantity(index))}>+</p>
+                                        <p className='btn-quantity' onClick={() => (dispatch(addCart(product.payload)))}>+</p>
                                     </div>
                                 </div>
                                 <div className='item-options__price'>
@@ -60,11 +39,11 @@ const Itens = () => {
                                         Preço
                                     </div>
                                     <div className='item-price'>
-                                        <p>R$ {(product.quantity * product.price).toFixed(2)}</p>
+                                        <p>R$ {(product.quantity * product.payload.price).toFixed(2)}</p>
                                     </div>
                                 </div>
                                 <div className='delete-item'>
-                                    <img src={bin} alt="Lixeira" onClick={() => (deleteItem(index))} />
+                                    <img src={bin} alt="Lixeira" onClick={() => (dispatch(deleteCart(product)))} />
                                 </div>
                             </section>
                         </div>

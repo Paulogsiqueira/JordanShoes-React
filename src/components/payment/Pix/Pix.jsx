@@ -1,9 +1,8 @@
-import { resetFreight } from '@/redux/useSlicer'
-import { useDispatch } from 'react-redux'
-import { CartContext } from '@/context/CartContext';
-import { useState, useContext} from 'react'
+import { resetFreight,resetCart } from '@/redux/useSlicer'
+import { useDispatch,useSelector } from 'react-redux'
+import { useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { calcPrice } from '@/utils/price';
+import { calcPrice2 } from '@/utils/price';
 import Modal from 'react-modal';
 import close from '@/img/icon/close.png';
 import complete from '@/img/icon/complete.png';
@@ -11,18 +10,18 @@ import pix from '@/img/payment/pix.png'
 import './Pix.css'
 
 const Pix = () => {
-    const { cart, setCart } = useContext(CartContext)
-    const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
-    const { totalPrice } = calcPrice(cart);
     const user = useSelector(state => state.user)
+    let freight = Number(user.freight.payload)
+    const cart = user.cart
+    const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false)
+    const { totalPrice } = calcPrice2(cart);
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    let freight = user.freight.payload
 
 
     const handlePayment = () => {
-        setCart([])
         dispatch(resetFreight())
+        dispatch(resetCart())
         openModalError()
     }
 

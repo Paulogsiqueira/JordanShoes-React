@@ -27,34 +27,60 @@ export const slice = createSlice({
         resetAddress(state) {
             return { ...state, address: {} }
         },
-        addCart(state, item) {
-            const currentCart = [...state.cart];
-            if (currentCart.find(produto => produto.name === item.name)) {
-                const cartPosition = produtos.findIndex(produto => produto.name === item.name);
-                currentCart[cartPosition].quantity += 1;
-                return { ...state, cart: currentCart }
+        addCart(state, newItem) {
+            console.log(newItem)
+            const { cart } = state;
+            const existingItemIndex = cart.findIndex(item => item.payload.name === newItem.payload.name);
+
+            console.log(cart)
+            if (existingItemIndex !== -1) {
+                const updatedCart = cart.map((item, index) =>
+                    index === existingItemIndex
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+                return { ...state, cart: updatedCart };
             } else {
-                const newProduct = item;
-                newProduct.quantity = 1;
-                const cartAfterAdd = [...state.cart, newProduct];
-                return { ...state, cart: cartAfterAdd };
+                const newItemWithQuantity = { ...newItem, quantity: 1 };
+                const newCart = [...cart, newItemWithQuantity];
+                return { ...state, cart: newCart };
             }
         },
         removeCart(state, item) {
-            const currentCart = [...state.cart];
-            const cartPosition = produtos.findIndex(produto => produto.name === item.name);
-            if(currentCart[cartPosition].quantity > 1){
-                currentCart[cartPosition].quantity -= 1;
-                return { ...state, cart: currentCart }
-            }else{
-                currentCart.splice(cartPosition, 1);
-                return { ...state, cart: currentCart }
+            const { cart } = state;
+            const cartPosition = cart.findIndex((produto) => produto.payload.name === item.payload.name);
+
+            const updatedCart = [...cart];
+            const currentItem = updatedCart[cartPosition];
+
+            if (currentItem && currentItem.quantity > 1) {
+                const updatedCart = cart.map((item, index) =>
+                    index === cartPosition
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : item
+                );
+                return { ...state, cart: updatedCart };
+            } else {
+                updatedCart.splice(cartPosition, 1);
             }
+
+            return { ...state, cart: updatedCart };
+        },
+        deleteCart(state, item) {
+            const { cart } = state;
+            const cartPosition = cart.findIndex((produto) => produto.payload.name === item.payload.name);
+            const updatedCart = [...cart];
+            updatedCart.splice(cartPosition, 1);
+            return { ...state, cart: updatedCart };
+
+        },
+        resetCart(state) {
+            return { ...state, cart: [] }
         }
     }
 })
 
-export const { login, logout, calcFreight, resetFreight, setAddress, resetAddress } = slice.actions
+export const { login, logout, calcFreight, resetFreight, setAddress, resetAddress, addCart, removeCart,deleteCart,resetCart } = slice.actions
 
 export const selectUser = state => state.user
 

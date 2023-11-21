@@ -8,24 +8,26 @@ const AddressDetails = ({setCompleteAddress}) => {
     const { register, handleSubmit, formState: { errors },setValue } = useForm()
     const user = useSelector(state => state.user)
     const address = (user.address.payload)
-    console.log(user)
+    console.log(address)
 
     const onSubmit = () => {
         setCompleteAddress(true)
     }
 
     useEffect(() => {
-        if (address.logradouro) {
-            setValue('street', address.logradouro)
-        }
-        if (address.localidade) {
-            setValue('city',address.localidade);
-        }
-        if (address.uf) {
-            setValue('state',address.uf);
-        }
-        if (address.bairro) {
-            setValue('district',address.bairro);
+        if(address != undefined){
+            if (address.logradouro) {
+                setValue('street', address.logradouro)
+            }
+            if (address.localidade) {
+                setValue('city',address.localidade);
+            }
+            if (address.uf) {
+                setValue('state',address.uf);
+            }
+            if (address.bairro) {
+                setValue('district',address.bairro);
+            } 
         }
     }, [address])
 

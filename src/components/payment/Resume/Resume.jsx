@@ -1,14 +1,12 @@
-import { CartContext } from '@/context/CartContext';
 import { useSelector } from 'react-redux'
-import { useContext} from 'react'
-import { calcPrice } from '@/utils/price';
+import { calcPrice2 } from '@/utils/price';
 import './Resume.css'
 
 const Resume = () => {
-    const { cart} = useContext(CartContext)
-    const { totalPrice } = calcPrice(cart);
     const user = useSelector(state => state.user)
     let freight = user.freight.payload > 1 ? Number(user.freight.payload) : 0;
+    const cart = user.cart
+    const { totalPrice } = calcPrice2(cart);
 
     const finalPrice = (freight + totalPrice).toFixed(2)
 
