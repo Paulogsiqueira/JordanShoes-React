@@ -72,6 +72,9 @@
     .filter-label {
         width: 26%;
     }
+    .products-list{
+        justify-content: start;
+    }
 }
 
 @media screen and (max-width: 690px) {

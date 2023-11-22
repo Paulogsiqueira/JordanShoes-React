@@ -164,3 +164,19 @@
     }
 
 }
+@media screen and (max-width: 800px){ 
+    .modal-content {
+        min-width: 350px;
+        left:10%
+    }
+
+}
+
+@media screen and (max-width: 440px){ 
+    .modal-content {
+        min-width: 300px;
+        left:5%
+    }
+
+}
+

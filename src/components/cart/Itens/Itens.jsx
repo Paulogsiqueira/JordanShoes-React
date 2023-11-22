@@ -21,7 +21,7 @@ const Itens = () => {
                             <section className='item-desc'>
                                 <h3>{product.payload.name}</h3>
                                 <p className='text-desc'>{product.payload.description}</p>
-                                <p><strong>Marca: </strong>Nike</p>
+                                <p className='item-brand'><strong>Marca: </strong>Nike</p>
                             </section>
                             <section className='item-options'>
                                 <div className='item-options__quantity'>

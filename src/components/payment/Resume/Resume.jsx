@@ -12,6 +12,7 @@ const Resume = () => {
 
     return (
         <div>
+            <h2 className='payment-resume-title'>Resumo do Pedido</h2>
             <div className='payment-itens-order'>
                 <div className='payment-cart-order'>
                     <h2 className='payment-resume'>Resumo</h2>
@@ -19,15 +20,18 @@ const Resume = () => {
                         <p>Subtotal</p>
                         <p>R$ {totalPrice.toFixed(2)}</p>
                     </div>
-                    {freight > 2 && <div className='freight'>
-                        <p>Frete</p>
-                        <p >R$ {freight.toFixed(2)}</p>
-                    </div>
+                    {
+                        freight > 2 && <div className='freight'>
+                            <p>Frete</p>
+                            <p >R$ {freight.toFixed(2)}</p>
+                        </div>
                     }
-                    {freight != 0 && <div className='payment-total'>
-                        <p>Total</p>
-                        <p className='payment-value'>R$ {finalPrice}</p>
-                    </div>}
+                    {
+                        freight != 0 && <div className='payment-total'>
+                            <p>Total</p>
+                            <p className='payment-value'>R$ {finalPrice}</p>
+                        </div>
+                    }
                     <div className='payment-pix'>
                         <p className='pix-method'>à vista</p>
                         <h2>R$ {((finalPrice) * 0.9).toFixed(2)}</h2>

@@ -2,6 +2,9 @@
     width: 100%;
     height: 500px;
 }
+.payment-resume-title{
+    display: none; 
+}
 
 .payment-cart-order {
     height: 450px;
@@ -100,7 +103,11 @@
     .payment-resume {
         margin-bottom: 130px;
         display: none;
-       
+    }
+    .payment-resume-title{
+        color:#00AEFF;
+        display: block; 
+        min-width: 250px;
     }
     .card-method {
         display: none;
@@ -113,9 +120,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 50%;
-        min-width: 450px;
+        width: min-content;
         height: 100px;
+        min-width: 330px;
+        padding: 10px 0;
+        flex-grow: 1;
     }
 
     .payment-itens-order {
@@ -123,17 +132,13 @@
         height: 150px;
     }
 
-    .payment-cart-order {
-        height: 100px;
-    }
-
     .payment-total {
-        width: 40%;
+        width: 150px;
         margin: 0 10px;
     }
 
     .payment-pix {
-        width: 250px;
+        min-width: 120px;
         justify-content: center;
         align-items: center;
         text-align: center;

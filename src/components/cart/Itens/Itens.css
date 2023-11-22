@@ -159,4 +159,25 @@
     .item-options__quantity{
         padding: 0px;
     }
+    .item-brand{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .item-options__price{
+        width: min-content;
+    }
+    .item-desc h3{
+        width: 50px;
+    }
+    .quantity-title{
+        font-size: 16px;
+    }
+    .price-title,.item-price{
+        font-size: 14px;
+    }
+    .item-desc{
+        margin: 0px 5px;
+    }
 }
