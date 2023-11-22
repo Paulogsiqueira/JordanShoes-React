@@ -3,7 +3,8 @@
     flex-direction: column;
     background-color: #EBE9EA;
     margin-bottom: -10px;
-    padding: 20px;
+    width: 90%;
+    padding: 5%;
     border-radius: 5px;
     align-items: center;
 }
@@ -51,4 +52,24 @@
 }
 .details-error p{
     color: #F03D3D;
+}
+
+@media screen and (max-width: 1350px){ 
+    .address-label input{
+        width: 200px;
+    }
+    .address-input p{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 1160px){
+    .address-label{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 420px){
+    .address-label input{
+        width: 150px;
+    }
 }

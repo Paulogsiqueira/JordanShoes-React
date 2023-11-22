@@ -7,7 +7,6 @@
 .register p{
     color: #aaa;
     margin-bottom: 70px;
-
 }
 
 .register form{
@@ -76,3 +75,18 @@ label span{
     color: #00AEFF;
     border:1px solid #00AEFF;
 }
+
+@media screen and (max-width: 1023px){ 
+    .register form{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 690px){
+    .register form{
+        width: 70%;
+    }
+    .register{
+        height: 120vh;
+    }
+}
+

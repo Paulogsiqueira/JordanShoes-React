@@ -73,7 +73,7 @@ const CreditCard = () => {
                 </label>
                 <label className='creditcard-label'>
                     <div className='creditcard-input'>
-                        <p>Número do cartão</p>
+                        <p>Nº do cartão</p>
                         <input type="text" placeholder='Digite o número do cartão' {...register("number", { required: true, validate: (value) => validarCartao(value), onChange: handleInputChangeNumber })} onInput={(e) => selectCardFlag(e)} />
                     </div>
                     <div className='form-error'>

@@ -28,11 +28,9 @@ export const slice = createSlice({
             return { ...state, address: {} }
         },
         addCart(state, newItem) {
-            console.log(newItem)
             const { cart } = state;
             const existingItemIndex = cart.findIndex(item => item.payload.name === newItem.payload.name);
 
-            console.log(cart)
             if (existingItemIndex !== -1) {
                 const updatedCart = cart.map((item, index) =>
                     index === existingItemIndex

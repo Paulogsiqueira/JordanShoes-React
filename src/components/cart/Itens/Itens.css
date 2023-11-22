@@ -120,3 +120,43 @@
     background-color: #dddddd;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1300px){ 
+    .text-desc{
+        display: none;
+    }
+}
+@media screen and (max-width: 1023px){ 
+    .item-img img{
+        width: 100px;
+    }
+    .cart-itens{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 690px){
+    .delete-item{
+        display: none;
+    }
+}
+@media screen and (max-width: 540px){
+    .btn-quantity{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5px;
+        padding: 5px 10px;
+    }
+    .item-quantity{
+        min-width: 7px
+    }
+    .item-img img{
+        width: 70px;
+    }
+    .item-desc h3{
+        font-size: 15px;
+    }
+    .item-options__quantity{
+        padding: 0px;
+    }
+}

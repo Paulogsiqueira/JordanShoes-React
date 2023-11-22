@@ -95,3 +95,22 @@
 .product-parcels span {
     font-size: 11px;
 }
+
+
+@media screen and (max-width: 1023px){ 
+    .product-details{
+        width: 95%;
+        padding: 0px;
+
+    }
+    .product-parcels {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 540px){
+    .product-parcels li {
+        font-size: 15px;
+    }
+}
+

@@ -46,7 +46,8 @@
     border-bottom: 1px solid #47474788;
     border-radius: 5px;
 }
-.filter-text:focus{
+
+.filter-text:focus {
     background-color: #f4f3f3;
 }
 
@@ -58,4 +59,33 @@
     justify-content: end;
     font-weight: 500;
     color: #474747
+}
+
+@media screen and (max-width: 1023px) {
+
+    .products-list li {
+        width: 33%;
+    }
+    .filter-products {
+        width: 90%;
+    }
+    .filter-label {
+        width: 26%;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .products-list li {
+        width: 44%;
+    }
+    .filter-label {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 540px) {
+    .products-list li {
+        width: 95%;
+    }
 }

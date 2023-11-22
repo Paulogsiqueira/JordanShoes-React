@@ -38,9 +38,11 @@ const Cart = () => {
           <Itens />
           <div className='payment-itens'>
             <Resume />
-            <Freight />
-            <div>
-              <button className='btn-cart' onClick={finalizeOrder}>Finalizar compra</button>
+            <div className='freight-finish'>
+              <Freight />
+              <div>
+                <button className='btn-cart' onClick={finalizeOrder}>Finalizar compra</button>
+              </div>
             </div>
           </div>
         </div>

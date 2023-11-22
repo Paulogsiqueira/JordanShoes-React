@@ -1,10 +1,10 @@
 .payment-itens-order {
     width: 100%;
-    height: 450px;
+    height: 500px;
 }
 
 .payment-cart-order {
-    height: 400px;
+    height: 450px;
     background-color: #EBE9EA;
     border: 2px solid #b2b2b2;
     border-radius: 20px;
@@ -12,6 +12,7 @@
     margin-top: 15px;
     margin-bottom: 20px;
 }
+
 .payment-total {
     display: flex;
     justify-content: space-around;
@@ -23,6 +24,7 @@
     align-items: center;
     background-color: #0bb045;
     width: 90%;
+    min-width: 163px;
     height: 50px;
 }
 
@@ -69,7 +71,8 @@
 
 .payment-pix h2 {
     margin: -10px 0 -5px;
-    color: #0bb045
+    color: #0bb045;
+    text-align: center;
 }
 
 .pix-method {
@@ -91,4 +94,71 @@
 .card-method p {
     text-align: center;
     font-size: 11px;
+}
+
+@media screen and (max-width: 1023px) {
+    .payment-resume {
+        margin-bottom: 130px;
+        display: none;
+       
+    }
+    .card-method {
+        display: none;
+    }
+    .payment-subtotal,.freight{
+        display: none;
+    }
+    
+    .payment-cart-order {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        min-width: 450px;
+        height: 100px;
+    }
+
+    .payment-itens-order {
+        width: 95vw;
+        height: 150px;
+    }
+
+    .payment-cart-order {
+        height: 100px;
+    }
+
+    .payment-total {
+        width: 40%;
+        margin: 0 10px;
+    }
+
+    .payment-pix {
+        width: 250px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 690px){
+    .payment-cart-order{
+        min-width: 350px;
+    }
+    .payment-itens-order{
+        width: 50%;
+    }
+    .payment-pix{
+        width: 150px;
+    }
+    .payment-pix h2{
+        width: 50px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .payment-cart-order{
+        min-width: 300px;
+    }
 }

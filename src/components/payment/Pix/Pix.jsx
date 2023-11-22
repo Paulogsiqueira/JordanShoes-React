@@ -37,7 +37,7 @@ const Pix = () => {
 
     return (
         <div>
-            <div className="payment-pix">
+            <div className="paymentType-pix">
                 <div className='pix-img'>
                     <img src={pix} alt="Código pix" />
                 </div>
@@ -45,7 +45,7 @@ const Pix = () => {
                     <h2>Valor: R${((totalPrice + freight) * 0.9).toFixed(2)}</h2>
                 </div>
                 <div className='pix-data'>
-                    <h3>Dados para PIX manual</h3>
+                    <h3>Dados para PIX</h3>
                     <p><strong>Nome:</strong> Paulo Gustavo Siqueira</p>
                     <p><strong>CNPJ:</strong> 94.688.382/0001-31</p>
                     <p><strong>Banco:</strong> Bradesco S.A</p>

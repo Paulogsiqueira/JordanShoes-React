@@ -1,5 +1,5 @@
 
-.payment-pix{
+.paymentType-pix{
     display: flex;
     flex-direction: column;
     background-color: #EBE9EA;
@@ -73,4 +73,21 @@
     width: 200px;
     height: 200px;
     margin: 0px auto 30px auto;
+}
+
+@media screen and (max-width: 1023px){ 
+    .pix-data{
+        width: 65%;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    .pix-data h3{
+        width: 120px;
+        margin:0px;
+    }
+    .btn-pix{
+        width: 105px;
+    }
 }

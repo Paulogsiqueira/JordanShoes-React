@@ -30,7 +30,7 @@ export const CardsList = ({ page, changeCount, products }) => {
                 <label className='filter-label'>
                     Nome do produto
                 </label>
-                <input type="text" className='filter-text' placeholder='Digite o nome do produto que esta buscando' ref={filter} />
+                <input type="text" className='filter-text' placeholder='Digite o nome do produto' ref={filter} />
                 <button className='btn' onClick={handleFilter}>Buscar</button>
             </div>
             <ul className={`products-list ${productsFiltered.length > 3 ? '' : 'start'}`}>

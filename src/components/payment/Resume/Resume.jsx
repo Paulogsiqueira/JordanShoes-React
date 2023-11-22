@@ -21,7 +21,7 @@ const Resume = () => {
                     </div>
                     {freight > 2 && <div className='freight'>
                         <p>Frete</p>
-                        <p >R$ {freight}</p>
+                        <p >R$ {freight.toFixed(2)}</p>
                     </div>
                     }
                     {freight != 0 && <div className='payment-total'>

@@ -14,3 +14,48 @@
     padding-top: 100px;
     width: 30%;
 }
+.resume-title{
+    display: none;
+}
+
+@media screen and (max-width: 1350px){ 
+    .payment-component{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1024px){ 
+    .resume-title{
+        display: block;
+    }
+    .finishOrder-page{
+        width: 95%;
+        margin: 0;
+        padding-left: 5%;
+        flex-direction: column-reverse;
+    }
+    .resume-component{
+        padding-top: 0px;
+    }
+    .resume-title{
+        color: #00AEFF;
+        width: 300px;
+    }
+   
+}
+
+@media screen and (max-width: 540px){
+    .finishOrder-page{
+        padding-left: 20px;
+        width: 80%;
+    }
+    .payment-component{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .payment-component{
+        width: 350px;
+    }
+}

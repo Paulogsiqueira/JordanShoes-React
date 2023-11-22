@@ -19,6 +19,7 @@
     flex-direction: row;
     margin-bottom: 0px;
     align-items: center;
+    margin-right: 50px;
 }
 
 .form-error {
@@ -77,4 +78,26 @@
     background-color: #FFF;
     color: #00AEFF;
     border: 1px solid #00AEFF;
+}
+
+@media screen and (max-width: 1023px){ 
+    .payment-creditcard{
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 690px){
+    .creditcard-input input,.creditcard-input select{
+        width: 100%; 
+    }
+    .btn-payment{
+        width: 120px;
+    }
+}
+@media screen and (max-width: 540px){
+    .creditcard-input{
+        margin-right: 0px;
+    }
 }

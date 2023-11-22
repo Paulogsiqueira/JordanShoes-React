@@ -13,6 +13,7 @@ const finishOrder = () => {
                 {completeAddress == true && <Payment />}
             </div>
             <div className="resume-component">
+            <h2 className="resume-title">Resumo do Pedido</h2>
                 <Resume />
             </div>
         </div>

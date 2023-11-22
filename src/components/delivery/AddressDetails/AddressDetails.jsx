@@ -8,7 +8,6 @@ const AddressDetails = ({setCompleteAddress}) => {
     const { register, handleSubmit, formState: { errors },setValue } = useForm()
     const user = useSelector(state => state.user)
     const address = (user.address.payload)
-    console.log(address)
 
     const onSubmit = () => {
         setCompleteAddress(true)

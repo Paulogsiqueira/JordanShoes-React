@@ -1,7 +1,7 @@
 .cart-title {
     display: flex;
     margin: 40px auto 30px;
-    justify-content: center;  
+    justify-content: center;
     font-size: 30px;
     color: #00AEFF;
 }
@@ -44,7 +44,7 @@
 
 /*      Finalizar compra      */
 
-.btn-cart{
+.btn-cart {
     background-color: #00AEFF;
     color: #FFF;
     text-align: center;
@@ -59,11 +59,31 @@
     justify-content: center;
     margin: 15px auto;
 }
-.btn-cart:hover{
+
+.btn-cart:hover {
     background-color: #FFF;
     color: #00AEFF;
-    border:1px solid #00AEFF;
+    border: 1px solid #00AEFF;
 }
 
 /*      Finalizar compra      */
 
+
+
+@media screen and (max-width: 1023px) {
+    .cart-page {
+        flex-direction: column;
+    }
+    .freight-finish{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw
+    }
+
+}
+@media screen and (max-width: 540px){
+    .btn-cart{
+        margin-left: 10px;
+    }
+}

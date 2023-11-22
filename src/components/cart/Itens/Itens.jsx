@@ -20,7 +20,7 @@ const Itens = () => {
                             </section>
                             <section className='item-desc'>
                                 <h3>{product.payload.name}</h3>
-                                <p>{product.payload.description}</p>
+                                <p className='text-desc'>{product.payload.description}</p>
                                 <p><strong>Marca: </strong>Nike</p>
                             </section>
                             <section className='item-options'>

@@ -70,3 +70,24 @@
     color: #474747;
     font-size: 16px;
 }
+
+@media screen and (max-width: 1350px){ 
+    .cep-form {
+        width: 95%;
+        padding: 2.5%;
+    }
+}
+
+@media screen and (max-width: 690px){
+    .cep-input p{
+        width: 50px;
+    }
+    .cep-input input{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 420px){
+    .btn-cep{
+        width: 100px;
+    }
+}

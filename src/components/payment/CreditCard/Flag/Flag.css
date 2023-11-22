@@ -2,6 +2,7 @@
     display: flex;
     border: none;
     width: 300px;
+    justify-content: center;
 }
 
 .radio-image label>input {

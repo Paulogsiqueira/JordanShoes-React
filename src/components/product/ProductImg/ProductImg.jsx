@@ -9,14 +9,42 @@ const ProductImg = ({item}) => {
     const [magnifyStyle, setMagnifyStyle] = useState({ backgroundImage: `url('${mainImg}')` })
     const [showImg, setShowImg] = useState(mainImg)
 
+    const [windowDimensions, setWindowDimensions] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    
+      useEffect(() => {
+        const handleResize = () => {
+          setWindowDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight,
+          });
+        };
+    
+        window.addEventListener('resize', handleResize);
+        if(windowDimensions.width < 1024){
+            setShowImg(mainImg)
+            setMagnifyStyle((prev) => ({...prev,display:'none'}))
+        }
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, [window.innerWidth]);
+
     const handleMouseMove = (e) => {
         const { offsetX, offsetY, target } = e.nativeEvent;
         const { offsetWidth, offsetHeight } = target;
         const xPercentage = (offsetX / offsetWidth) * 100;
         const yPercentage = (offsetY / offsetHeight) * 100;
-        setShowImg(teste)
-
-        setMagnifyStyle((prev) => ({ ...prev,display:'block',top:`${offsetY +100}px`,left:`${offsetX+100 }px`, backgroundPosition: `${xPercentage}% ${yPercentage}%` }))
+        
+        if(windowDimensions.width < 1024){
+            setMagnifyStyle((prev) => ({...prev,display:'none'}))
+            setShowImg(mainImg)
+        }else{
+            setShowImg(teste)
+            setMagnifyStyle((prev) => ({ ...prev,display:'block',top:`${offsetY +100}px`,left:`${offsetX+100 }px`, backgroundPosition: `${xPercentage}% ${yPercentage}%` }))
+        }
     }
 
     useEffect(() => {

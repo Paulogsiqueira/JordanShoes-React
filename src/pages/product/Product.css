@@ -2,7 +2,7 @@
     display: flex;
     margin-top: 5%;
     margin-bottom: 15%;
-    height: 70vh;
+    height: 95vh;
 }
 
 /* Modal */
@@ -150,4 +150,17 @@
     width: 200px;
     height: 200px;
     margin: 0px auto 30px auto;
+}
+
+@media screen and (max-width: 1200px){ 
+    .product-parcels span{
+        display: none;
+    }
+}
+@media screen and (max-width: 1023px){ 
+    .product {
+        height: 100%;
+        flex-direction: column;
+    }
+
 }

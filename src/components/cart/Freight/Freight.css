@@ -69,3 +69,11 @@
 .freight-value {
     color: #0BB07B;
 }
+
+@media screen and (max-width: 1023px){ 
+    .payment-freight{
+        height: 300px;
+        width: 200px;
+    }
+
+}
