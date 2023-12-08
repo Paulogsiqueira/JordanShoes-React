@@ -34,13 +34,13 @@ Armazenar informações de login no localStorage.
 Implementar validações para garantir um login seguro.
 8. Componentes Reutilizáveis e Estilo
 Criar componentes reutilizáveis para garantir uma estrutura modular e manutenível.
-Estilizar o aplicativo de forma atraente e responsiva usando uma biblioteca de estilos ou CSS-in-JS.
+Estilizar o aplicativo de forma atraente e responsiva
 9. Navegação
 Implementar navegação entre as diferentes páginas do aplicativo usando React Router para proporcionar uma experiência de usuário fluida.
 10. Responsividade
 Garantir que o aplicativo seja responsivo, proporcionando uma boa experiência de usuário em dispositivos móveis e desktops.
 11. Gerenciamento de Estado
-Utilizar o Redux ou o Context API do React para gerenciar o estado global do aplicativo, especialmente para o carrinho de compras e dados de usuário.
+Utilizar o Redux do React para gerenciar o estado global do aplicativo, especialmente para o carrinho de compras e dados de usuário.
 
 
 ## 💥 Objetivo
